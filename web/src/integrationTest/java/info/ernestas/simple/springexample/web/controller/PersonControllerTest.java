@@ -1,8 +1,8 @@
 package info.ernestas.simple.springexample.web.controller;
 
-import info.ernestas.simple.springexample.core.builder.PersonBuilder;
-import info.ernestas.simple.springexample.core.dao.repository.PersonRepository;
-import info.ernestas.simple.springexample.core.model.Person;
+import core.builder.PersonBuilder;
+import core.dao.repository.PersonRepository;
+import core.model.Person;
 import info.ernestas.simple.springexample.web.AbstractIntegrationTest;
 import org.junit.Before;
 import org.junit.Test;
