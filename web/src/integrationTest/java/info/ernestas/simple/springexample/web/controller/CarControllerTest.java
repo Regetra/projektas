@@ -1,8 +1,8 @@
 package info.ernestas.simple.springexample.web.controller;
 
-import info.ernestas.simple.springexample.core.builder.CarBuilder;
-import info.ernestas.simple.springexample.core.dao.repository.CarRepository;
-import info.ernestas.simple.springexample.core.model.Car;
+import core.builder.CarBuilder;
+import core.dao.repository.CarRepository;
+import core.model.Car;
 import info.ernestas.simple.springexample.web.AbstractIntegrationTest;
 import org.junit.Before;
 import org.junit.Test;

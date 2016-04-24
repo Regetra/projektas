@@ -1,6 +1,6 @@
 package info.ernestas.simple.springexample.web.controller;
 
-import info.ernestas.simple.springexample.core.service.ArithmeticFunctionsService;
+import core.service.ArithmeticFunctionsService;
 import info.ernestas.simple.springexample.web.model.ArithmeticForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
