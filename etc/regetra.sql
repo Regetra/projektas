@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 m. Bal 24 d. 14:44
+-- Generation Time: 2016 m. Bal 25 d. 13:30
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -148,7 +148,7 @@ CREATE TABLE `klientas` (
   `VairavimoEgzaminas` tinyint(1) DEFAULT NULL,
   `Vardas` varchar(255) DEFAULT NULL,
   `Amzius` int(11) DEFAULT NULL,
-  `Vavarde` varchar(255) DEFAULT NULL,
+  `Pavarde` varchar(255) DEFAULT NULL,
   `AsmensKodas` int(11) DEFAULT NULL,
   `TeorijosEgzaminas` tinyint(1) DEFAULT NULL,
   `TeorinioData` date DEFAULT NULL,

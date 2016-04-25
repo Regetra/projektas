@@ -7,15 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/cars")
+@RequestMapping("/Auto")
 public class CarController {
 
     @Autowired
     private CarService carService;
 
-    @RequestMapping("/all")
+    @RequestMapping("/")
     public String getAllNames(Model model) {
-        model.addAttribute("cars", carService.findAllcars());
+
         return "cars";
     }
 
