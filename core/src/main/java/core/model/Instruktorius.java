@@ -19,21 +19,21 @@ public class Instruktorius {
     private Integer id;
 
     @Column(name = "Vardas")
-    private String Vardas;
+    private String vardas;
 
     @Column(name = "Pavarde")
-    private String Pavarde;
+    private String pavarde;
 
     public Integer getId() {
         return id;
     }
 
     public String getPavarde() {
-        return Pavarde;
+        return pavarde;
     }
 
     public String getVardas() {
-        return Vardas;
+        return vardas;
     }
 
     public void setId(Integer id) {
@@ -41,10 +41,10 @@ public class Instruktorius {
     }
 
     public void setPavarde(String pavarde) {
-        Pavarde = pavarde;
+        this.pavarde = pavarde;
     }
 
     public void setVardas(String vardas) {
-        Vardas = vardas;
+        this.vardas = vardas;
     }
 }

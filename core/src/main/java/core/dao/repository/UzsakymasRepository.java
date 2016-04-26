@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UzsakymasRepository extends JpaRepository<Uzsakymas, Integer> {
 
+    Uzsakymas findByUsakymoDataAndPristatymoVieta(String UzsakymoData, String PristatymoVieta);
+
 }

@@ -19,4 +19,9 @@ public class DarbuotojasDaoImpl implements DarbuotojasDao {
         return darRepository.findAll();
     }
 
+    @Override
+    public Darbuotojas findByVardasAndPavarde(String Vardas, String Pavarde) {
+        return darRepository.findByVardasAndPavarde(Vardas, Pavarde);
+    }
+
 }

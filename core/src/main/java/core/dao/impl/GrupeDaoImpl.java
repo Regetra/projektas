@@ -19,4 +19,9 @@ public class GrupeDaoImpl implements GrupeDao {
         return grupRepository.findAll();
     }
 
+    @Override
+    public Grupe findByPavadinimas(String Pavadinimas) {
+        return grupRepository.findByPavadinimas(Pavadinimas);
+    }
+
 }

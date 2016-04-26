@@ -19,4 +19,9 @@ public class UzsakymasDaoImpl implements UzsakymasDao {
         return uzsRepository.findAll();
     }
 
+    @Override
+    public Uzsakymas findByUsakymoDataAndPristatymoVieta(String UzsakymoData, String PristatymoVieta) {
+        return uzsRepository.findByUsakymoDataAndPristatymoVieta(UzsakymoData,PristatymoVieta);
+    }
+
 }

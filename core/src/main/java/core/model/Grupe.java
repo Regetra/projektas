@@ -19,13 +19,13 @@ public class Grupe {
     private Integer id;
 
     @Column(name = "Amzius")
-    private Integer Amzius;
+    private Integer amzius;
 
     @Column(name = "Pavadinimas")
-    private String Pavadinimas;
+    private String pavadinimas;
 
     public Integer getAmzius() {
-        return Amzius;
+        return amzius;
     }
 
     public Integer getId() {
@@ -33,11 +33,11 @@ public class Grupe {
     }
 
     public String getPavadinimas() {
-        return Pavadinimas;
+        return pavadinimas;
     }
 
     public void setAmzius(Integer amzius) {
-        Amzius = amzius;
+        this.amzius = amzius;
     }
 
     public void setId(Integer id) {
@@ -45,7 +45,7 @@ public class Grupe {
     }
 
     public void setPavadinimas(String pavadinimas) {
-        Pavadinimas = pavadinimas;
+        this.pavadinimas = pavadinimas;
     }
 
 }

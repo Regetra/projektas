@@ -19,4 +19,9 @@ public class FilialasDaoImpl implements FilialasDao {
         return filRepository.findAll();
     }
 
+    @Override
+    public Filialas findByMiestasAndAdresas(String Miestas, String Adresas) {
+        return filRepository.findByMiestasAndAdresas(Miestas, Adresas);
+    }
+
 }

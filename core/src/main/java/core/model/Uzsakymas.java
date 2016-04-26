@@ -20,13 +20,13 @@ public class Uzsakymas {
     private Integer id;
 
     @Column(name = "UsakymoData")
-    private Date UsakymoData;
+    private Date usakymoData;
 
     @Column(name = "PristatymoVieta")
-    private String PristatymoVieta;
+    private String pristatymoVieta;
 
     public Date getUsakymoData() {
-        return UsakymoData;
+        return usakymoData;
     }
 
     public Integer getId() {
@@ -34,7 +34,7 @@ public class Uzsakymas {
     }
 
     public String getPristatymoVieta() {
-        return PristatymoVieta;
+        return pristatymoVieta;
     }
 
     public void setId(Integer id) {
@@ -42,11 +42,11 @@ public class Uzsakymas {
     }
 
     public void setPristatymoVieta(String pristatymoVieta) {
-        PristatymoVieta = pristatymoVieta;
+        this.pristatymoVieta = pristatymoVieta;
     }
 
     public void setUsakymoData(Date usakymoData) {
-        UsakymoData = usakymoData;
+        this.usakymoData = usakymoData;
     }
 
 }
