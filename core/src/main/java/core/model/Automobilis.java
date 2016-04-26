@@ -16,39 +16,39 @@ public class Automobilis {
     private Integer Id;
 
     @Column(name = "Modelis")
-    private String Modelis;
+    private String modelis;
 
     @Column(name = "Marke")
-    private  String Marke;
+    private  String marke;
 
     @Column(name = "Grupe")
-    private String Grupe;
+    private String grupe;
 
     public Integer getId(){return Id;}
 
     public void setId(Integer Id){this.Id = Id;}
 
     public String getMarke() {
-        return Marke;
+        return marke;
     }
 
     public void setMarke(String marke) {
-        Marke = marke;
+        this.marke = marke;
     }
 
     public String getModelis() {
-        return Modelis;
+        return modelis;
     }
 
     public String getGrupe() {
-        return Grupe;
+        return grupe;
     }
 
     public void setGrupe(String grupe) {
-        Grupe = grupe;
+        this.grupe = grupe;
     }
 
     public void setModelis(String modelis) {
-        Modelis = modelis;
+        this.modelis = modelis;
     }
 }

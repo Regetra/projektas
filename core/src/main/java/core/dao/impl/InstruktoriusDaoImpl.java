@@ -19,4 +19,9 @@ public class InstruktoriusDaoImpl implements InstruktoriusDao {
         return insRepository.findAll();
     }
 
+    @Override
+    public Instruktorius findByVardasAndPavarde(String Vardas, String Pavarde) {
+        return insRepository.findByVardasAndPavarde(Vardas, Pavarde);
+    }
+
 }

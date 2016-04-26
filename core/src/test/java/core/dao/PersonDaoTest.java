@@ -27,6 +27,7 @@ public class PersonDaoTest {
 
     @Autowired
     private PersonDao personDao;
+    private AutomobilisDao autDao;
 
     @Autowired
     private PersonRepository personRepository;

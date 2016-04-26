@@ -19,58 +19,58 @@ public class Klientas {
     private Integer id;
 
     @Column(name = "VairavimoEgzaminas")
-    private Boolean VairavimoEgzaminas;
+    private Boolean vairavimoEgzaminas;
 
     @Column(name = "Vardas;")
-    private String Vardas;
+    private String vardas;
 
     @Column(name = "Amzius")
-    private Integer Amzius;
+    private Integer amzius;
 
     @Column(name = "Pavarde")
-    private String Pavarde;
+    private String pavarde;
 
     @Column(name = "AsmensKodas")
-    private Integer AsmensKodas;
+    private Integer asmensKodas;
 
     @Column(name = "TeorijosEgzaminas")
-    private Boolean	TeorijosEgzaminas;
+    private Boolean	teorijosEgzaminas;
 
     @Column(name = "TeorinioData")
-    private Date TeorinioData;
+    private Date teorinioData;
 
     @Column(name = "PraktinioData")
-    private Date PraktinioData;
+    private Date praktinioData;
 
     @Column(name = "TeorinioIslaikymoData")
-    private Date TeorinioIslaikymoData;
+    private Date teorinioIslaikymoData;
 
     public Boolean getTeorijosEgzaminas() {
-        return TeorijosEgzaminas;
+        return teorijosEgzaminas;
     }
 
     public Boolean getVairavimoEgzaminas() {
-        return VairavimoEgzaminas;
+        return vairavimoEgzaminas;
     }
 
     public Date getPraktinioData() {
-        return PraktinioData;
+        return praktinioData;
     }
 
     public Date getTeorinioData() {
-        return TeorinioData;
+        return teorinioData;
     }
 
     public Date getTeorinioIslaikymoData() {
-        return TeorinioIslaikymoData;
+        return teorinioIslaikymoData;
     }
 
     public Integer getAmzius() {
-        return Amzius;
+        return amzius;
     }
 
     public Integer getAsmensKodas() {
-        return AsmensKodas;
+        return asmensKodas;
     }
 
     public Integer getId() {
@@ -78,19 +78,19 @@ public class Klientas {
     }
 
     public String getPavarde() {
-        return Pavarde;
+        return pavarde;
     }
 
     public String getVardas() {
-        return Vardas;
+        return vardas;
     }
 
     public void setAmzius(Integer amzius) {
-        Amzius = amzius;
+        this.amzius = amzius;
     }
 
     public void setAsmensKodas(Integer asmensKodas) {
-        AsmensKodas = asmensKodas;
+        this.asmensKodas = asmensKodas;
     }
 
     public void setId(Integer id) {
@@ -98,31 +98,31 @@ public class Klientas {
     }
 
     public void setPavarde(String pavarde) {
-        Pavarde = pavarde;
+        this.pavarde = pavarde;
     }
 
     public void setPraktinioData(Date praktinioData) {
-        PraktinioData = praktinioData;
+        this.praktinioData = praktinioData;
     }
 
     public void setTeorijosEgzaminas(Boolean teorijosEgzaminas) {
-        TeorijosEgzaminas = teorijosEgzaminas;
+        this.teorijosEgzaminas = teorijosEgzaminas;
     }
 
     public void setTeorinioData(Date teorinioData) {
-        TeorinioData = teorinioData;
+        this.teorinioData = teorinioData;
     }
 
     public void setTeorinioIslaikymoData(Date teorinioIslaikymoData) {
-        TeorinioIslaikymoData = teorinioIslaikymoData;
+        this.teorinioIslaikymoData = teorinioIslaikymoData;
     }
 
     public void setVairavimoEgzaminas(Boolean vairavimoEgzaminas) {
-        VairavimoEgzaminas = vairavimoEgzaminas;
+        this.vairavimoEgzaminas = vairavimoEgzaminas;
     }
 
     public void setVardas(String vardas) {
-        Vardas = vardas;
+        this.vardas = vardas;
     }
 
 }

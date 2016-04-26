@@ -8,4 +8,6 @@ import java.util.List;
  */
 public interface DarbuotojasDao {
     List<Darbuotojas> findAll();
+
+    Darbuotojas findByVardasAndPavarde(String Vardas, String Pavarde);
 }

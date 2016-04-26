@@ -8,4 +8,6 @@ import java.util.List;
  */
 public interface AutomobilisDao {
     List<Automobilis> findAll();
+
+    Automobilis findByModelisAndMarke(String Modelis, String Marke);
 }
