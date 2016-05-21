@@ -1,6 +1,7 @@
 package core.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "filialas")
@@ -37,4 +38,29 @@ public class Filialas {
         this.miestas = miestas;
     }
 
+    @OneToMany(mappedBy="fili")
+    private List<Darbuotojas> darb;
+
+    public List<Darbuotojas> getDarb() {
+        return darb;
+    }
+
+    public void setDarb(List<Darbuotojas> darb) {
+        this.darb = darb;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name="turi",
+            joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="Id"),
+            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="Id"))
+    private List<Grupe> grup;
+
+    public List<Grupe> getGrup() {
+        return grup;
+    }
+
+    public void setGrup(List<Grupe> grup) {
+        this.grup = grup;
+    }
 }

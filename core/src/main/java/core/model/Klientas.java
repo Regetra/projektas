@@ -1,12 +1,8 @@
 package core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by SimphonX on 2016-04-23.
@@ -125,4 +121,25 @@ public class Klientas {
         this.vardas = vardas;
     }
 
+    @OneToMany(mappedBy="klie")
+    private List<Uzsakymas> uzsa;
+
+    public List<Uzsakymas> getUzsa() {
+        return uzsa;
+    }
+
+    public void setUzsa(List<Uzsakymas> uzsa) {
+        this.uzsa = uzsa;
+    }
+
+    @ManyToMany(mappedBy="klien")
+    private List<Grupe> grupes;
+
+    public List<Grupe> getGrupes() {
+        return grupes;
+    }
+
+    public void setGrupes(List<Grupe> grupes) {
+        this.grupes = grupes;
+    }
 }

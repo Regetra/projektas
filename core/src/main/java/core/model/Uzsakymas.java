@@ -1,11 +1,6 @@
 package core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -49,4 +44,15 @@ public class Uzsakymas {
         this.usakymoData = usakymoData;
     }
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_klientasid_klientas")
+    private Klientas klie;
+
+    public Klientas getKlie() {
+        return klie;
+    }
+
+    public void setKlie(Klientas klie) {
+        this.klie = klie;
+    }
 }

@@ -1,11 +1,7 @@
 package core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by SimphonX on 2016-04-23.
@@ -48,4 +44,51 @@ public class Grupe {
         this.pavadinimas = pavadinimas;
     }
 
+    @OneToMany(mappedBy="gr")
+    private List<Automobilis> auto;
+
+    public List<Automobilis> getAuto() {
+        return auto;
+    }
+
+    public void setAuto(List<Automobilis> auto) {
+        this.auto = auto;
+    }
+
+    @OneToMany(mappedBy="grupe")
+    private List<Instruktorius> inst;
+
+    public List<Instruktorius> getInst() {
+        return inst;
+    }
+
+    public void setInst(List<Instruktorius> inst) {
+        this.inst = inst;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name="laiko",
+            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="Id"),
+            inverseJoinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="Id"))
+    private List<Klientas> klien;
+
+    public List<Klientas> getKlien() {
+        return klien;
+    }
+
+    public void setKlien(List<Klientas> klien) {
+        this.klien = klien;
+    }
+
+    @ManyToMany(mappedBy="grup")
+    private List<Filialas> fili;
+
+    public List<Filialas> getFili() {
+        return fili;
+    }
+
+    public void setFili(List<Filialas> fili) {
+        this.fili = fili;
+    }
 }

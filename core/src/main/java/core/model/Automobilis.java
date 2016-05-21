@@ -1,11 +1,6 @@
 package core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "automobilis")
@@ -50,5 +45,17 @@ public class Automobilis {
 
     public void setModelis(String modelis) {
         this.modelis = modelis;
+    }
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_Grupeid_Grupe")
+    private Grupe gr;
+
+    public Grupe getGr() {
+        return gr;
+    }
+
+    public void setGr(Grupe gr) {
+        this.gr = gr;
     }
 }

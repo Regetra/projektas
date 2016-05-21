@@ -1,11 +1,7 @@
 package core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 /**
  * Created by SimphonX on 2016-04-23.
  */
@@ -47,5 +43,17 @@ public class Darbuotojas {
 
     public void setVardas(String vardas) {
         this.vardas = vardas;
+    }
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_Filialasid_Filialas")
+    private Filialas fili;
+
+    public Filialas getFili() {
+        return fili;
+    }
+
+    public void setFili(Filialas fili) {
+        this.fili = fili;
     }
 }
