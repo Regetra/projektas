@@ -12,6 +12,7 @@ import java.util.List;
 public class Klientas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_klientas")
     private Integer id;
 
     @Column(name = "VairavimoEgzaminas")
@@ -142,4 +143,27 @@ public class Klientas {
     public void setGrupes(List<Grupe> grupes) {
         this.grupes = grupes;
     }
+
+    @OneToMany(mappedBy="filiTeo")
+    private List<Filialas> teorinis;
+
+    @OneToMany(mappedBy="filiPra")
+    private List<Filialas> praktinis;
+
+    public List<Filialas> getPraktinis() {
+        return praktinis;
+    }
+
+    public List<Filialas> getTeorinis() {
+        return teorinis;
+    }
+
+    public void setPraktinis(List<Filialas> praktinis) {
+        this.praktinis = praktinis;
+    }
+
+    public void setTeorinis(List<Filialas> teorinis) {
+        this.teorinis = teorinis;
+    }
+
 }

@@ -2,6 +2,7 @@ package core.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by SimphonX on 2016-04-23.
@@ -12,6 +13,7 @@ public class Grupe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Grupe")
     private Integer id;
 
     @Column(name = "Amzius")
@@ -56,50 +58,54 @@ public class Grupe {
     }
 
     @OneToMany(mappedBy="gr")
-    private List<Automobilis> auto;
+    private Set<Automobilis> auto;
 
-    public List<Automobilis> getAuto() {
+    public Set<Automobilis> getAuto() {
         return auto;
     }
 
-    public void setAuto(List<Automobilis> auto) {
+    public void setAuto(Set<Automobilis> auto) {
         this.auto = auto;
-    }
-
-    @OneToMany(mappedBy="grupe")
-    private List<Instruktorius> inst;
-
-    public List<Instruktorius> getInst() {
-        return inst;
-    }
-
-    public void setInst(List<Instruktorius> inst) {
-        this.inst = inst;
     }
 
     @ManyToMany
     @JoinTable(
             name="laiko",
-            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="Id"),
-            inverseJoinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="Id"))
-    private List<Klientas> klien;
+            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
+            inverseJoinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="id_klientas"))
+    private Set<Klientas> klien;
 
-    public List<Klientas> getKlien() {
+    @ManyToMany
+    @JoinTable(
+            name="egzaminuoja",
+            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
+            inverseJoinColumns=@JoinColumn(name="fk_Instruktoriusid_Instruktorius", referencedColumnName="id_Instruktorius"))
+    private Set<Instruktorius> inst;
+
+    public Set<Instruktorius> getInst() {
+        return inst;
+    }
+
+    public void setInst(Set<Instruktorius> inst) {
+        this.inst = inst;
+    }
+
+    public Set<Klientas> getKlien() {
         return klien;
     }
 
-    public void setKlien(List<Klientas> klien) {
+    public void setKlien(Set<Klientas> klien) {
         this.klien = klien;
     }
 
     @ManyToMany(mappedBy="grup")
-    private List<Filialas> fili;
+    private Set<Filialas> fili;
 
-    public List<Filialas> getFili() {
+    public Set<Filialas> getFili() {
         return fili;
     }
 
-    public void setFili(List<Filialas> fili) {
+    public void setFili(Set<Filialas> fili) {
         this.fili = fili;
     }
 }

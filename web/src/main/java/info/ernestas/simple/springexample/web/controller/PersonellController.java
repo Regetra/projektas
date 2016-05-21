@@ -1,6 +1,6 @@
 package info.ernestas.simple.springexample.web.controller;
 
-import core.service.StudentService;
+import core.service.DarbuotojasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PersonellController {
 
     @Autowired
-    private StudentService studentService;
+    private DarbuotojasService darbService;
 
     @RequestMapping("/")
-    public String getAllNames(Model model) {
-        return "students";
+    public String getAllNames(Model model){    model.addAttribute("persons", darbService.findAllDarb());
+        return "Personel";
     }
 
 }

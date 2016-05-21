@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Automobilis {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_automobilis")
     private Integer Id;
 
     @Column(name = "Modelis")
@@ -15,9 +16,6 @@ public class Automobilis {
 
     @Column(name = "Marke")
     private  String marke;
-
-    @Column(name = "Grupe")
-    private String grupe;
 
     public Integer getId(){return Id;}
 
@@ -35,14 +33,6 @@ public class Automobilis {
         return modelis;
     }
 
-    public String getGrupe() {
-        return grupe;
-    }
-
-    public void setGrupe(String grupe) {
-        this.grupe = grupe;
-    }
-
     public void setModelis(String modelis) {
         this.modelis = modelis;
     }
@@ -53,9 +43,5 @@ public class Automobilis {
 
     public Grupe getGr() {
         return gr;
-    }
-
-    public void setGr(Grupe gr) {
-        this.gr = gr;
     }
 }

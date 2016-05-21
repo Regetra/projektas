@@ -25,19 +25,19 @@ public class KlientasDaoImpl implements KlientasDao {
         return kliRepository.findByAsmensKodas(AsmensKodas);
     }
 
-    @Override
-    public List<Klientas> findByTeorinioData(Date TeorinioData) {
-        return kliRepository.findByTeorinioData(TeorinioData);
+    /*@Override
+    public List<Klientas> findByTeorinioDataAndFilialas(Date TeorinioData, int fk_filialasTeo){
+        return kliRepository.findByTeorinioDataAndFilialas(TeorinioData, fk_filialasTeo);
     }
 
     @Override
-    public List<Klientas> findByPraktinioData(Date PraktinioData) {
-        return kliRepository.findByPraktinioData(PraktinioData);
+    public List<Klientas> findByPraktinioDataAndFilialas(Date PraktinioData, int fk_filialasPra) {
+        return kliRepository.findByPraktinioDataAndFilialas(PraktinioData, fk_filialasPra);
     }
 
     @Override
     public List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData) {
         return kliRepository.findByTeorinioIslaikymoData(TeorinioIslaikymoData);
-    }
+    }*/
 
 }

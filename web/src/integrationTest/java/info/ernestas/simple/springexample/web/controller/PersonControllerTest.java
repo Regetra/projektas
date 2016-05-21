@@ -38,7 +38,7 @@ public class PersonControllerTest extends AbstractIntegrationTest {
             .accept(MediaType.TEXT_HTML))
             .andExpect(status().isOk())
             .andExpect(view().name("persons"))
-            .andExpect(forwardedUrl("/WEB-INF/pages/persons.jsp"))
+            .andExpect(forwardedUrl("/WEB-INF/pages/groups.jsp"))
             .andExpect(model().attribute("persons", hasSize(2)));
     }
 

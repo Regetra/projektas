@@ -13,6 +13,7 @@ public class Darbuotojas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Darbuotojas")
     private Integer Id;
 
     @Column(name = "Vardas")

@@ -12,6 +12,7 @@ import java.util.Date;
 public class Uzsakymas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Uzsakymas")
     private Integer id;
 
     @Column(name = "UsakymoData")

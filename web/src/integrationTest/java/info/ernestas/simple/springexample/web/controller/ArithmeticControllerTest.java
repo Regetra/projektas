@@ -20,7 +20,7 @@ public class ArithmeticControllerTest extends AbstractIntegrationTest {
             .accept(MediaType.TEXT_HTML))
             .andExpect(status().isOk())
             .andExpect(view().name("arithmetic"))
-            .andExpect(forwardedUrl("/WEB-INF/pages/arithmetic.jsp"))
+            .andExpect(forwardedUrl("/WEB-INF/pages/filials.jsp"))
             .andExpect(model().attribute("form", notNullValue()));
     }
 
@@ -32,7 +32,7 @@ public class ArithmeticControllerTest extends AbstractIntegrationTest {
             .accept(MediaType.TEXT_HTML))
             .andExpect(status().isOk())
             .andExpect(view().name("arithmeticResults"))
-            .andExpect(forwardedUrl("/WEB-INF/pages/arithmeticResults.jsp"))
+            .andExpect(forwardedUrl("/WEB-INF/pages/registration.jsp"))
             .andExpect(model().attribute("sum", is(14.9)))
             .andExpect(model().attribute("subtract", is(6.1)))
             .andExpect(model().attribute("multiply", is(46.2)))

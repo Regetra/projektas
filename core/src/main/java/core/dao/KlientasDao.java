@@ -14,10 +14,10 @@ public interface KlientasDao {
 
     Klientas findByAsmensKodas(Integer AsmensKodas);
 
-    List<Klientas> findByTeorinioData(Date TeorinioData);
+    /*List<Klientas> findByTeorinioDataAndFilialas(Date TeorinioData, int filialas);
 
-    List<Klientas> findByPraktinioData(Date PraktinioData);
+    List<Klientas> findByPraktinioDataAndFilialas(Date PraktinioData, int filialas);
 
-    List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData);
+    List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData);*/
 
 }

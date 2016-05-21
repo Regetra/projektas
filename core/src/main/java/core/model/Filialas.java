@@ -9,6 +9,7 @@ import java.util.List;
 public class Filialas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Filialas")
     private Integer Id;
 
     @Column(name = "Miestas")
@@ -52,8 +53,8 @@ public class Filialas {
     @ManyToMany
     @JoinTable(
             name="turi",
-            joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="Id"),
-            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="Id"))
+            joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"),
+            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
     private List<Grupe> grup;
 
     public List<Grupe> getGrup() {
@@ -62,5 +63,29 @@ public class Filialas {
 
     public void setGrup(List<Grupe> grup) {
         this.grup = grup;
+    }
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasTeo")
+    private Filialas filiTeo;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasPra")
+    private Filialas filiPra;
+
+    public Filialas getFiliPra() {
+        return filiPra;
+    }
+
+    public Filialas getFiliTeo() {
+        return filiTeo;
+    }
+
+    public void setFiliPra(Filialas filiPra) {
+        this.filiPra = filiPra;
+    }
+
+    public void setFiliTeo(Filialas filiTeo) {
+        this.filiTeo = filiTeo;
     }
 }
