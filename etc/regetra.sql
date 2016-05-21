@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 m. Bal 25 d. 13:30
--- Server version: 5.7.11
--- PHP Version: 5.6.19
+-- Generation Time: 2016 m. Geg 21 d. 14:34
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `regetra`
@@ -23,29 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Sukurta duomenų struktūra lentelei `automobilis`
---
-
-CREATE TABLE `automobilis` (
-  `Modelis` varchar(255) DEFAULT NULL,
-  `Marke` varchar(255) DEFAULT NULL,
-  `Grupe` varchar(255) DEFAULT NULL,
-  `id_automobilis` int(11) NOT NULL,
-  `fk_Grupeid_Grupe` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Sukurta duomenų struktūra lentelei `darbuotojas`
 --
 
-CREATE TABLE `darbuotojas` (
+CREATE TABLE IF NOT EXISTS `darbuotojas` (
   `Vardas` varchar(255) DEFAULT NULL,
   `Pavarde` varchar(255) DEFAULT NULL,
-  `id_Darbuotojas` int(11) NOT NULL,
-  `fk_Filialasid_Filialas` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_Darbuotojas` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_Filialasid_Filialas` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_Darbuotojas`),
+  KEY `fk_Filialasid_Filialas` (`fk_Filialasid_Filialas`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -53,12 +41,46 @@ CREATE TABLE `darbuotojas` (
 -- Sukurta duomenų struktūra lentelei `filialas`
 --
 
-CREATE TABLE `filialas` (
+CREATE TABLE IF NOT EXISTS `filialas` (
   `Miestas` varchar(255) DEFAULT NULL,
   `Adresas` varchar(255) DEFAULT NULL,
   `id_Filialas` int(11) NOT NULL,
-  `fk_Valstybeid_Valstybe` int(11) DEFAULT NULL
+  PRIMARY KEY (`id_Filialas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Sukurta duomenų kopija lentelei `filialas`
+--
+
+INSERT INTO `filialas` (`Miestas`, `Adresas`, `id_Filialas`) VALUES
+('Kaunas', 'Taikos pr. 145', 1),
+('Vilnius', 'Gedo g. 45', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Sukurta duomenų struktūra lentelei `garazas`
+--
+
+CREATE TABLE IF NOT EXISTS `garazas` (
+  `Modelis` varchar(255) DEFAULT NULL,
+  `Marke` varchar(255) DEFAULT NULL,
+  `id_automobilis` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_Grupeid_Grupe` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_automobilis`),
+  KEY `fk_Grupeid_Grupe` (`fk_Grupeid_Grupe`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Sukurta duomenų kopija lentelei `garazas`
+--
+
+INSERT INTO `garazas` (`Modelis`, `Marke`, `id_automobilis`, `fk_Grupeid_Grupe`) VALUES
+('Astra', 'Opel', 1, 4),
+('i30', 'Hyundai', 2, 4),
+('GS1000', 'Suzuki', 3, 2),
+('TGX600', 'Man', 4, 6),
+('Scania', 'SS600', 5, 8);
 
 -- --------------------------------------------------------
 
@@ -66,64 +88,32 @@ CREATE TABLE `filialas` (
 -- Sukurta duomenų struktūra lentelei `grupe`
 --
 
-CREATE TABLE `grupe` (
+CREATE TABLE IF NOT EXISTS `grupe` (
+  `Pavadinimas` varchar(30) COLLATE utf8_lithuanian_ci NOT NULL,
   `Amzius` int(11) DEFAULT NULL,
-  `Pavadinimas` varchar(255) DEFAULT NULL,
-  `id_Grupe` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Komentaras` varchar(100) COLLATE utf8_lithuanian_ci NOT NULL,
+  `id_Grupe` int(11) NOT NULL,
+  PRIMARY KEY (`id_Grupe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_lithuanian_ci;
 
 --
 -- Sukurta duomenų kopija lentelei `grupe`
 --
 
-INSERT INTO `grupe` (`Amzius`, `Pavadinimas`, `id_Grupe`) VALUES
-(16, 'A1', 1),
-(16, 'A', 2),
-(18, 'B1', 3),
-(18, 'B', 4),
-(18, 'C1', 5),
-(18, 'C', 6),
-(18, 'D1', 7),
-(18, 'D', 8),
-(18, 'BE', 9),
-(20, 'C1E', 10),
-(20, 'D1E', 11),
-(20, 'CE', 12),
-(20, 'DE', 13),
-(22, 'T', 14),
-(22, 'AM', 15);
-
--- --------------------------------------------------------
-
---
--- Sukurta duomenų struktūra lentelei `grupes`
---
-
-CREATE TABLE `grupes` (
-  `id_Grupes` int(11) NOT NULL,
-  `name` char(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Sukurta duomenų kopija lentelei `grupes`
---
-
-INSERT INTO `grupes` (`id_Grupes`, `name`) VALUES
-(1, 'A1'),
-(2, 'A'),
-(3, 'B1'),
-(4, 'B'),
-(5, 'C1'),
-(6, 'C'),
-(7, 'D1'),
-(8, 'D'),
-(9, 'BE'),
-(10, 'C1E'),
-(11, 'D1E'),
-(12, 'CE'),
-(13, 'DE'),
-(14, 'T'),
-(15, 'AM');
+INSERT INTO `grupe` (`Pavadinimas`, `Amzius`, `Komentaras`, `id_Grupe`) VALUES
+('A1', 16, 'Motociklai, kurių variklio darbinis tūris didesnis kaip 50 cm3, bet ne didesnis kaip 125 cm3, galia ', 1),
+('A', 16, 'Triračiai, kurių galia didesnė kaip 15 kW, ir motociklai.', 2),
+('B1', 18, 'Keturračiai.', 3),
+('B', 18, 'Automobiliai, kurių didžiausioji leidžiamoji masė ne didesnė kaip 3 500 kg', 4),
+('C1', 18, 'Automobiliai, kurie nepriskiriami D1 ir D kategorijoms ir kurių didžiausioji leidžiamoji masė didesn', 5),
+('C', 18, 'C Automobiliai, kurie nepriskiriami D1 ir D kategorijoms ir kurių didžiausioji leidžiamoji masė dide', 6),
+('D1', 18, 'Automobiliai, kurie skirti ir suprojektuoti vežti ne daugiau kaip šešiolika keleivių', 7),
+('D', 18, 'Automobiliai, skirti ir suprojektuoti vežti daugiau kaip aštuonis keleivius, neįskaitant vairuotojo;', 8),
+('BE', 18, 'B kategorijos automobilio ir priekabos, kurios didžiausioji leidžiamoji masė ne didesnė kaip 3 500 k', 9),
+('CE', 20, 'C kategorijos automobilių ir priekabų, kurių didžiausioji leidžiamoji masė didesnė kaip 750 kg, jung', 12),
+('DE', 20, 'D kategorijos automobilių ir priekabų, kurių didžiausioji leidžiamoji masė didesnė kaip 750 kg, jung', 13),
+('T', 22, 'Troleibusai, tai yra nebėginės transporto priemonės, sujungtos su išoriniu elektros šaltiniu.', 14),
+('AM', 22, 'Mopedai ir lengvieji keturračiai.', 15);
 
 -- --------------------------------------------------------
 
@@ -131,12 +121,24 @@ INSERT INTO `grupes` (`id_Grupes`, `name`) VALUES
 -- Sukurta duomenų struktūra lentelei `instruktorius`
 --
 
-CREATE TABLE `instruktorius` (
+CREATE TABLE IF NOT EXISTS `instruktorius` (
   `Vardas` varchar(255) DEFAULT NULL,
   `Pavarde` varchar(255) DEFAULT NULL,
-  `id_Instruktorius` int(11) NOT NULL,
-  `fk_Grupeid_Grupe` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Darbo stazas` int(11) NOT NULL,
+  `Kategorijos` varchar(20) NOT NULL,
+  `id_Instruktorius` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_Instruktorius`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Sukurta duomenų kopija lentelei `instruktorius`
+--
+
+INSERT INTO `instruktorius` (`Vardas`, `Pavarde`, `Darbo stazas`, `Kategorijos`, `id_Instruktorius`) VALUES
+('Petras', 'Petryla', 27, 'A,A1, B,B1, C,CE,T', 1),
+('Jonas', 'Kiaune', 25, 'A,A1, B,B1, D,DE,T', 2),
+('Dainius', 'Bruzga', 26, 'A,A1, B,B1', 3),
+('Linas', 'Klimas', 20, 'A,A1, B,B1,C,CE, D,D', 4);
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,7 @@ CREATE TABLE `instruktorius` (
 -- Sukurta duomenų struktūra lentelei `klientas`
 --
 
-CREATE TABLE `klientas` (
+CREATE TABLE IF NOT EXISTS `klientas` (
   `VairavimoEgzaminas` tinyint(1) DEFAULT NULL,
   `Vardas` varchar(255) DEFAULT NULL,
   `Amzius` int(11) DEFAULT NULL,
@@ -154,7 +156,8 @@ CREATE TABLE `klientas` (
   `TeorinioData` date DEFAULT NULL,
   `PraktinioData` date DEFAULT NULL,
   `TeorinioIslaikymoData` date DEFAULT NULL,
-  `id_klientas` int(11) NOT NULL
+  `id_klientas` int(11) NOT NULL,
+  PRIMARY KEY (`id_klientas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -163,9 +166,11 @@ CREATE TABLE `klientas` (
 -- Sukurta duomenų struktūra lentelei `laiko`
 --
 
-CREATE TABLE `laiko` (
+CREATE TABLE IF NOT EXISTS `laiko` (
   `fk_Grupeid_Grupe` int(11) NOT NULL,
-  `fk_klientasid_klientas` int(11) NOT NULL
+  `fk_klientasid_klientas` int(11) NOT NULL,
+  PRIMARY KEY (`fk_Grupeid_Grupe`,`fk_klientasid_klientas`),
+  KEY `fk_klientasid_klientas` (`fk_klientasid_klientas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -174,9 +179,11 @@ CREATE TABLE `laiko` (
 -- Sukurta duomenų struktūra lentelei `turi`
 --
 
-CREATE TABLE `turi` (
+CREATE TABLE IF NOT EXISTS `turi` (
   `fk_Grupeid_Grupe` int(11) NOT NULL,
-  `fk_Filialasid_Filialas` int(11) NOT NULL
+  `fk_Filialasid_Filialas` int(11) NOT NULL,
+  PRIMARY KEY (`fk_Grupeid_Grupe`,`fk_Filialasid_Filialas`),
+  KEY `fk_Filialasid_Filialas` (`fk_Filialasid_Filialas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -185,112 +192,18 @@ CREATE TABLE `turi` (
 -- Sukurta duomenų struktūra lentelei `uzsakymas`
 --
 
-CREATE TABLE `uzsakymas` (
-  `UsakymoData` date DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `uzsakymas` (
+  `UzsakymoData` date DEFAULT NULL,
   `PristatymoVieta` varchar(255) DEFAULT NULL,
   `id_Uzsakymas` int(11) NOT NULL,
-  `fk_klientasid_klientas` int(11) DEFAULT NULL
+  `fk_klientasid_klientas` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_Uzsakymas`),
+  KEY `fk_klientasid_klientas` (`fk_klientasid_klientas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Sukurta duomenų struktūra lentelei `valstybe`
---
-
-CREATE TABLE `valstybe` (
-  `Pavadinimas` varchar(255) DEFAULT NULL,
-  `IkurimoData` date DEFAULT NULL,
-  `id_Valstybe` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `automobilis`
---
-ALTER TABLE `automobilis`
-  ADD PRIMARY KEY (`id_automobilis`),
-  ADD KEY `fk_Grupeid_Grupe` (`fk_Grupeid_Grupe`);
-
---
--- Indexes for table `darbuotojas`
---
-ALTER TABLE `darbuotojas`
-  ADD PRIMARY KEY (`id_Darbuotojas`),
-  ADD KEY `fk_Filialasid_Filialas` (`fk_Filialasid_Filialas`);
-
---
--- Indexes for table `filialas`
---
-ALTER TABLE `filialas`
-  ADD PRIMARY KEY (`id_Filialas`),
-  ADD KEY `fk_Valstybeid_Valstybe` (`fk_Valstybeid_Valstybe`);
-
---
--- Indexes for table `grupe`
---
-ALTER TABLE `grupe`
-  ADD PRIMARY KEY (`id_Grupe`),
-  ADD KEY `Pavadinimas` (`Pavadinimas`);
-
---
--- Indexes for table `grupes`
---
-ALTER TABLE `grupes`
-  ADD PRIMARY KEY (`id_Grupes`);
-
---
--- Indexes for table `instruktorius`
---
-ALTER TABLE `instruktorius`
-  ADD PRIMARY KEY (`id_Instruktorius`),
-  ADD KEY `fk_Grupeid_Grupe` (`fk_Grupeid_Grupe`);
-
---
--- Indexes for table `klientas`
---
-ALTER TABLE `klientas`
-  ADD PRIMARY KEY (`id_klientas`);
-
---
--- Indexes for table `laiko`
---
-ALTER TABLE `laiko`
-  ADD PRIMARY KEY (`fk_Grupeid_Grupe`,`fk_klientasid_klientas`),
-  ADD KEY `fk_klientasid_klientas` (`fk_klientasid_klientas`);
-
---
--- Indexes for table `turi`
---
-ALTER TABLE `turi`
-  ADD PRIMARY KEY (`fk_Grupeid_Grupe`,`fk_Filialasid_Filialas`),
-  ADD KEY `fk_Filialasid_Filialas` (`fk_Filialasid_Filialas`);
-
---
--- Indexes for table `uzsakymas`
---
-ALTER TABLE `uzsakymas`
-  ADD PRIMARY KEY (`id_Uzsakymas`),
-  ADD KEY `fk_klientasid_klientas` (`fk_klientasid_klientas`);
-
---
--- Indexes for table `valstybe`
---
-ALTER TABLE `valstybe`
-  ADD PRIMARY KEY (`id_Valstybe`);
 
 --
 -- Apribojimai eksportuotom lentelėm
 --
-
---
--- Apribojimai lentelei `automobilis`
---
-ALTER TABLE `automobilis`
-  ADD CONSTRAINT `automobilis_ibfk_1` FOREIGN KEY (`fk_Grupeid_Grupe`) REFERENCES `grupe` (`id_Grupe`);
 
 --
 -- Apribojimai lentelei `darbuotojas`
@@ -299,16 +212,10 @@ ALTER TABLE `darbuotojas`
   ADD CONSTRAINT `darbuotojas_ibfk_1` FOREIGN KEY (`fk_Filialasid_Filialas`) REFERENCES `filialas` (`id_Filialas`);
 
 --
--- Apribojimai lentelei `filialas`
+-- Apribojimai lentelei `garazas`
 --
-ALTER TABLE `filialas`
-  ADD CONSTRAINT `Filialas_ibfk_1` FOREIGN KEY (`fk_Valstybeid_Valstybe`) REFERENCES `valstybe` (`id_Valstybe`);
-
---
--- Apribojimai lentelei `instruktorius`
---
-ALTER TABLE `instruktorius`
-  ADD CONSTRAINT `instruktorius_ibfk_1` FOREIGN KEY (`fk_Grupeid_Grupe`) REFERENCES `grupe` (`id_Grupe`);
+ALTER TABLE `garazas`
+  ADD CONSTRAINT `garazas_ibfk_1` FOREIGN KEY (`fk_Grupeid_Grupe`) REFERENCES `grupe` (`id_Grupe`);
 
 --
 -- Apribojimai lentelei `laiko`

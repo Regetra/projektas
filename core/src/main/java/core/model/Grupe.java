@@ -20,6 +20,9 @@ public class Grupe {
     @Column(name = "Pavadinimas")
     private String pavadinimas;
 
+    @Column(name = "Komentaras")
+    private String komentaras;
+
     public Integer getAmzius() {
         return amzius;
     }
@@ -42,6 +45,14 @@ public class Grupe {
 
     public void setPavadinimas(String pavadinimas) {
         this.pavadinimas = pavadinimas;
+    }
+
+    public String getKomentaras() {
+        return komentaras;
+    }
+
+    public void setKomentaras(String komentaras) {
+        this.komentaras = komentaras;
     }
 
     @OneToMany(mappedBy="gr")

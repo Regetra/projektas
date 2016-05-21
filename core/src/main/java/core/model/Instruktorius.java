@@ -19,6 +19,12 @@ public class Instruktorius {
     @Column(name = "Pavarde")
     private String pavarde;
 
+    @Column(name = "Darbo stazas")
+    private  Integer stazas;
+
+    @Column(name = "Kategorijos")
+    private String kategorijos;
+
     public Integer getId() {
         return id;
     }
@@ -43,15 +49,31 @@ public class Instruktorius {
         this.vardas = vardas;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_Grupeid_Grupe")
-    private Grupe grupe;
-
-    public Grupe getGr() {
+    public Grupe getGrupe() {
         return grupe;
     }
 
-    public void setGr(Grupe gr) {
-        this.grupe = gr;
+    public Integer getStazas() {
+        return stazas;
     }
+
+    public String getKategorijos() {
+        return kategorijos;
+    }
+
+    public void setGrupe(Grupe grupe) {
+        this.grupe = grupe;
+    }
+
+    public void setKategorijos(String kategorijos) {
+        this.kategorijos = kategorijos;
+    }
+
+    public void setStazas(Integer stazas) {
+        this.stazas = stazas;
+    }
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_Grupeid_Grupe")
+    private Grupe grupe;
 }
