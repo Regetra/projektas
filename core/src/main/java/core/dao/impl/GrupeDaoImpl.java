@@ -6,6 +6,7 @@ import core.model.Grupe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -29,6 +30,7 @@ public class GrupeDaoImpl implements GrupeDao {
                 System.out.println(gr.get(i).getKlien());*/
         }
         return gr;
+
     }
 
     @Override

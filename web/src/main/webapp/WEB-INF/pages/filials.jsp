@@ -52,6 +52,7 @@
 
             <footer>
                 <p>Sistema kurta IF 4-14 studentų</p>
+                <p>2016m.</p>
             </footer>
         </font>
     </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 m. Geg 22 d. 06:56
+-- Generation Time: 2016 m. Geg 22 d. 15:04
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -54,6 +54,13 @@ CREATE TABLE `egzaminuoja` (
   `fk_Grupeid_Grupe` int(11) DEFAULT NULL,
   `fk_Instruktoriusid_Instruktorius` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Sukurta duomenų kopija lentelei `egzaminuoja`
+--
+
+INSERT INTO `egzaminuoja` (`fk_Grupeid_Grupe`, `fk_Instruktoriusid_Instruktorius`) VALUES
+(4, 3);
 
 -- --------------------------------------------------------
 
@@ -167,7 +174,7 @@ CREATE TABLE `klientas` (
   `Vardas` varchar(255) DEFAULT NULL,
   `Amzius` int(11) DEFAULT NULL,
   `Pavarde` varchar(255) DEFAULT NULL,
-  `AsmensKodas` int(11) DEFAULT NULL,
+  `AsmensKodas` bigint(20) DEFAULT NULL,
   `TeorijosEgzaminas` tinyint(1) DEFAULT NULL,
   `TeorinioData` date DEFAULT NULL,
   `PraktinioData` date DEFAULT NULL,
@@ -177,6 +184,15 @@ CREATE TABLE `klientas` (
   `fk_filialasPra` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Sukurta duomenų kopija lentelei `klientas`
+--
+
+INSERT INTO `klientas` (`VairavimoEgzaminas`, `Vardas`, `Amzius`, `Pavarde`, `AsmensKodas`, `TeorijosEgzaminas`, `TeorinioData`, `PraktinioData`, `TeorinioIslaikymoData`, `id_klientas`, `fk_filialasTeo`, `fk_filialasPra`) VALUES
+(1, 'Povilas', 18, 'Kazlauskas', 39502272561, 1, '2016-05-11', '2016-05-19', '2016-05-13', 1, 1, 2),
+(1, 'Donatas', 20, 'Vosylius', 10, NULL, NULL, '2010-01-01', '2010-01-01', 2, NULL, NULL),
+(1, 'Mykolas', 24, 'Petras', 10, NULL, NULL, '2010-01-01', '2010-01-01', 3, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -184,9 +200,16 @@ CREATE TABLE `klientas` (
 --
 
 CREATE TABLE `laiko` (
-  `fk_Grupeid_Grupe` int(11) NOT NULL,
-  `fk_klientasid_klientas` int(11) NOT NULL
+  `fk_klientasid_klientas` int(11) DEFAULT NULL,
+  `fk_Grupeid_Grupe` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Sukurta duomenų kopija lentelei `laiko`
+--
+
+INSERT INTO `laiko` (`fk_klientasid_klientas`, `fk_Grupeid_Grupe`) VALUES
+(1, 3);
 
 -- --------------------------------------------------------
 
@@ -278,8 +301,8 @@ ALTER TABLE `klientas`
 -- Indexes for table `laiko`
 --
 ALTER TABLE `laiko`
-  ADD PRIMARY KEY (`fk_Grupeid_Grupe`,`fk_klientasid_klientas`),
-  ADD KEY `fk_klientasid_klientas` (`fk_klientasid_klientas`);
+  ADD KEY `fk_klientasid_klientas` (`fk_klientasid_klientas`),
+  ADD KEY `fk_Grupeid_Grupe` (`fk_Grupeid_Grupe`);
 
 --
 -- Indexes for table `turi`
@@ -314,6 +337,16 @@ ALTER TABLE `garazas`
 --
 ALTER TABLE `instruktorius`
   MODIFY `id_Instruktorius` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `klientas`
+--
+ALTER TABLE `klientas`
+  MODIFY `id_klientas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `uzsakymas`
+--
+ALTER TABLE `uzsakymas`
+  MODIFY `id_Uzsakymas` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Apribojimai eksportuotom lentelėm
 --
