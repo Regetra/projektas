@@ -16,7 +16,25 @@ public class FilialasDaoImpl implements FilialasDao {
 
     @Override
     public List<Filialas> findAll() {
-        return filRepository.findAll();
+        List<Filialas> fili = filRepository.findAll();
+        System.out.println("-----------------------------------" + fili.size());
+        for(int i = 0; i < fili.size(); i++)
+        {
+            Filialas a = fili.get(i);
+            if(a.getDarb() != null)
+                for(int j = 0; j < a.getDarb().size(); j++)
+                    System.out.println(a.getDarb().get(j));
+            /*if(a.getGrup() != null)
+                for(int j = 0; j < a.getGrup().size(); j++)
+                    System.out.println(a.getGrup().get(j));
+            if(a.getPraktinis() != null)
+                for(int j = 0; j < a.getPraktinis().size(); j++)
+                    System.out.println(a.getPraktinis().get(j));
+            if(a.getTeorinis() != null)
+                for(int j = 0; j < a.getTeorinis().size(); j++)
+                    System.out.println(a.getTeorinis().get(j));*/
+        }
+        return fili;
     }
 
     @Override

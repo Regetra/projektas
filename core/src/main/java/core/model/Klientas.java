@@ -1,6 +1,7 @@
 package core.model;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -29,13 +30,13 @@ public class Klientas {
     private String pavarde;
 
     @Column(name = "AsmensKodas")
-    private Integer asmensKodas;
+    private BigInteger asmensKodas;
 
     @Column(name = "TeorijosEgzaminas")
     private Boolean	teorijosEgzaminas;
 
-    /*@Column(name = "TeorinioData")
-    private Date teorinioData;*/
+    @Column(name = "TeorinioData")
+    private Date teorinioData;
 
     @Column(name = "PraktinioData")
     private Date praktinioData;
@@ -55,9 +56,9 @@ public class Klientas {
         return praktinioData;
     }
 
-    /*public Date getTeorinioData() {
+    public Date getTeorinioData() {
         return teorinioData;
-    }*/
+    }
 
     public Date getTeorinioIslaikymoData() {
         return teorinioIslaikymoData;
@@ -67,7 +68,7 @@ public class Klientas {
         return amzius;
     }
 
-    public Integer getAsmensKodas() {
+    public BigInteger getAsmensKodas() {
         return asmensKodas;
     }
 
@@ -87,7 +88,7 @@ public class Klientas {
         this.amzius = amzius;
     }
 
-    public void setAsmensKodas(Integer asmensKodas) {
+    public void setAsmensKodas(BigInteger asmensKodas) {
         this.asmensKodas = asmensKodas;
     }
 
@@ -107,9 +108,9 @@ public class Klientas {
         this.teorijosEgzaminas = teorijosEgzaminas;
     }
 
-    /*public void setTeorinioData(Date teorinioData) {
+    public void setTeorinioData(Date teorinioData) {
         this.teorinioData = teorinioData;
-    }*/
+    }
 
     public void setTeorinioIslaikymoData(Date teorinioIslaikymoData) {
         this.teorinioIslaikymoData = teorinioIslaikymoData;
@@ -145,12 +146,12 @@ public class Klientas {
         this.grupes = grupes;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_filialasTeo")
+    @ManyToOne
+    @JoinColumn(name="fk_filialasTeo", nullable=true)
     private Filialas filiTeo;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_filialasPra")
+    @ManyToOne
+    @JoinColumn(name="fk_filialasPra", nullable=true)
     private Filialas filiPra;
 
     public Filialas getFiliPra() {

@@ -16,7 +16,13 @@ public class UzsakymasDaoImpl implements UzsakymasDao {
 
     @Override
     public List<Uzsakymas> findAll() {
-        return uzsRepository.findAll();
+
+        List<Uzsakymas> uzs = uzsRepository.findAll();
+        for(int i = 0; i < uzs.size(); i++)
+        {
+            System.out.println(uzs.get(i).getKlie());
+        }
+        return uzs;
     }
 
     @Override

@@ -45,8 +45,8 @@ public class Uzsakymas {
         this.usakymoData = usakymoData;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_klientasid_klientas")
+    @ManyToOne
+    @JoinColumn(name="fk_klientasid_klientas", nullable=true)
     private Klientas klie;
 
     public Klientas getKlie() {

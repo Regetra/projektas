@@ -99,7 +99,11 @@ public class Grupe {
         this.klien = klien;
     }
 
-    @ManyToMany(mappedBy="grup")
+    @ManyToMany
+    @JoinTable(
+            name="turi",
+            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
+            inverseJoinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"))
     private List<Filialas> fili;
 
     public List<Filialas> getFili() {

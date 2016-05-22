@@ -40,21 +40,17 @@ public class Filialas {
     }
 
     @OneToMany(mappedBy="fili")
-    private Set<Darbuotojas> darb;
+    private List<Darbuotojas> darb;
 
-    public Set<Darbuotojas> getDarb() {
+    public List<Darbuotojas> getDarb() {
         return darb;
     }
 
-    public void setDarb(Set<Darbuotojas> darb) {
+    public void setDarb(List<Darbuotojas> darb) {
         this.darb = darb;
     }
 
-    @ManyToMany
-    @JoinTable(
-            name="turi",
-            joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"),
-            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
+    @ManyToMany(mappedBy="fili")
 
     private List<Grupe> grup;
 

@@ -19,10 +19,14 @@ public class GrupeDaoImpl implements GrupeDao {
         List<Grupe> gr = grupRepository.findAll();
         for(int i = 0; i < gr.size(); i++)
         {
-            for(int j = 0; j < gr.get(i).getFili().size(); j++)
-            {
-                System.out.println(gr.get(i).getFili().get(j).getMiestas() + " " + gr.get(i).getFili().get(j).getAdresas() + " " + gr.get(i).getPavadinimas());
-            }
+            /*for(int j = 0; j < gr.get(i).getFili().size(); j++)
+                System.out.println(gr.get(i).getFili().get(j));*/
+            for(int j = 0; j < gr.get(i).getAuto().size(); j++)
+                System.out.println(gr.get(i).getAuto().get(j));
+            for(int j = 0; j < gr.get(i).getInst().size(); j++)
+                System.out.println(gr.get(i).getInst().get(j));
+            /*for(int j = 0; j < gr.get(i).getKlien().size(); j++)
+                System.out.println(gr.get(i).getKlien().get(j));*/
         }
         return gr;
     }
