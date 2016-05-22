@@ -144,26 +144,28 @@ public class Klientas {
         this.grupes = grupes;
     }
 
-    @OneToMany(mappedBy="filiTeo")
-    private List<Filialas> teorinis;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasTeo")
+    private Filialas filiTeo;
 
-    @OneToMany(mappedBy="filiPra")
-    private List<Filialas> praktinis;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasPra")
+    private Filialas filiPra;
 
-    public List<Filialas> getPraktinis() {
-        return praktinis;
+    public Filialas getFiliPra() {
+        return filiPra;
     }
 
-    public List<Filialas> getTeorinis() {
-        return teorinis;
+    public Filialas getFiliTeo() {
+        return filiTeo;
     }
 
-    public void setPraktinis(List<Filialas> praktinis) {
-        this.praktinis = praktinis;
+    public void setFiliPra(Filialas filiPra) {
+        this.filiPra = filiPra;
     }
 
-    public void setTeorinis(List<Filialas> teorinis) {
-        this.teorinis = teorinis;
+    public void setFiliTeo(Filialas filiTeo) {
+        this.filiTeo = filiTeo;
     }
 
 }

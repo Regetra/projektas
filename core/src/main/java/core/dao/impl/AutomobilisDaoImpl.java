@@ -17,7 +17,14 @@ public class AutomobilisDaoImpl implements AutomobilisDao {
 
     @Override
     public List<Automobilis> findAll() {
-        return autoRepository.findAll();
+        List<Automobilis> auto = autoRepository.findAll();
+        for(int i = 0; i < auto.size(); i++)
+        {
+            Automobilis a = auto.get(i);
+            a.getGr();
+            auto.add(i, a);
+        }
+        return auto;
     }
 
     @Override
