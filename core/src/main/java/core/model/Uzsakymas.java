@@ -12,6 +12,7 @@ import java.util.Date;
 public class Uzsakymas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Uzsakymas")
     private Integer id;
 
     @Column(name = "UsakymoData")
@@ -19,6 +20,17 @@ public class Uzsakymas {
 
     @Column(name = "PristatymoVieta")
     private String pristatymoVieta;
+
+    @Column(name = "fk_klientasid_klientas")
+    private String klientas;
+
+    public String getKlientas() {
+        return klientas;
+    }
+
+    public void setKlientas(String klientas) {
+        this.klientas = klientas;
+    }
 
     public Date getUsakymoData() {
         return usakymoData;
@@ -44,7 +56,9 @@ public class Uzsakymas {
         this.usakymoData = usakymoData;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
+
+
+    /*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_klientasid_klientas")
     private Klientas klie;
 
@@ -54,5 +68,5 @@ public class Uzsakymas {
 
     public void setKlie(Klientas klie) {
         this.klie = klie;
-    }
+    }*/
 }

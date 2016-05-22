@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Automobilis {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_automobilis")
     private Integer Id;
 
     @Column(name = "Modelis")
@@ -16,8 +17,16 @@ public class Automobilis {
     @Column(name = "Marke")
     private  String marke;
 
-    @Column(name = "Grupe")
-    private String grupe;
+    @Column(name = "fk_Grupeid_Grupe")
+    private Integer grupe;
+
+    public Integer getGrupe() {
+        return grupe;
+    }
+
+    public void setGrupe(Integer grupe) {
+        this.grupe = grupe;
+    }
 
     public Integer getId(){return Id;}
 
@@ -35,27 +44,15 @@ public class Automobilis {
         return modelis;
     }
 
-    public String getGrupe() {
-        return grupe;
-    }
-
-    public void setGrupe(String grupe) {
-        this.grupe = grupe;
-    }
-
     public void setModelis(String modelis) {
         this.modelis = modelis;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
+   /* @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_Grupeid_Grupe")
     private Grupe gr;
 
     public Grupe getGr() {
         return gr;
-    }
-
-    public void setGr(Grupe gr) {
-        this.gr = gr;
-    }
+    }*/
 }

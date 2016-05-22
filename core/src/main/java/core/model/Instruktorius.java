@@ -1,6 +1,8 @@
 package core.model;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by SimphonX on 2016-04-23.
@@ -11,6 +13,7 @@ public class Instruktorius {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Instruktorius")
     private Integer id;
 
     @Column(name = "Vardas")
@@ -19,7 +22,7 @@ public class Instruktorius {
     @Column(name = "Pavarde")
     private String pavarde;
 
-    @Column(name = "Darbo stazas")
+    @Column(name = "Darbo_stazas")
     private  Integer stazas;
 
     @Column(name = "Kategorijos")
@@ -49,20 +52,12 @@ public class Instruktorius {
         this.vardas = vardas;
     }
 
-    public Grupe getGrupe() {
-        return grupe;
-    }
-
     public Integer getStazas() {
         return stazas;
     }
 
     public String getKategorijos() {
         return kategorijos;
-    }
-
-    public void setGrupe(Grupe grupe) {
-        this.grupe = grupe;
     }
 
     public void setKategorijos(String kategorijos) {
@@ -73,7 +68,14 @@ public class Instruktorius {
         this.stazas = stazas;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_Grupeid_Grupe")
-    private Grupe grupe;
+    /*@ManyToMany(mappedBy="inst")
+    private Set<Grupe> grupe;
+
+    public Set<Grupe> getGrupe() {
+        return grupe;
+    }
+
+    public void setGrupe(Set<Grupe> grupe) {
+        this.grupe = grupe;
+    }*/
 }

@@ -2,6 +2,7 @@ package core.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "filialas")
@@ -9,6 +10,7 @@ import java.util.List;
 public class Filialas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Filialas")
     private Integer Id;
 
     @Column(name = "Miestas")
@@ -16,7 +18,6 @@ public class Filialas {
 
     @Column(name = "Adresas")
     private  String adresas;
-
 
     public Integer getId(){return Id;}
 
@@ -38,29 +39,51 @@ public class Filialas {
         this.miestas = miestas;
     }
 
-    @OneToMany(mappedBy="fili")
-    private List<Darbuotojas> darb;
+    /*@OneToMany(mappedBy="fili")
+    private Set<Darbuotojas> darb;
 
-    public List<Darbuotojas> getDarb() {
+    public Set<Darbuotojas> getDarb() {
         return darb;
     }
 
-    public void setDarb(List<Darbuotojas> darb) {
+    public void setDarb(Set<Darbuotojas> darb) {
         this.darb = darb;
     }
 
     @ManyToMany
     @JoinTable(
             name="turi",
-            joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="Id"),
-            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="Id"))
-    private List<Grupe> grup;
+            joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"),
+            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
+    private Set<Grupe> grup;
 
-    public List<Grupe> getGrup() {
+    public Set<Grupe> getGrup() {
         return grup;
     }
 
-    public void setGrup(List<Grupe> grup) {
+    public void setGrup(Set<Grupe> grup) {
         this.grup = grup;
     }
+
+    @OneToMany(mappedBy="filiTeo")
+    private Set<Klientas> teorinis;
+
+    @OneToMany(mappedBy="filiPra")
+    private Set<Klientas> praktinis;
+
+    public Set<Klientas> getPraktinis() {
+        return praktinis;
+    }
+
+    public Set<Klientas> getTeorinis() {
+        return teorinis;
+    }
+
+    public void setPraktinis(Set<Klientas> praktinis) {
+        this.praktinis = praktinis;
+    }
+
+    public void setTeorinis(Set<Klientas> teorinis) {
+        this.teorinis = teorinis;
+    }*/
 }

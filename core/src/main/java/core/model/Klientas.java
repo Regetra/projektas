@@ -3,6 +3,7 @@ package core.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by SimphonX on 2016-04-23.
@@ -12,6 +13,7 @@ import java.util.List;
 public class Klientas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_klientas")
     private Integer id;
 
     @Column(name = "VairavimoEgzaminas")
@@ -40,6 +42,28 @@ public class Klientas {
 
     @Column(name = "TeorinioIslaikymoData")
     private Date teorinioIslaikymoData;
+
+    @Column(name = "fk_filialasTeo")
+    private  String teor;
+
+    @Column(name = "fk_filialasPra")
+    private  String prak;
+
+    public String getPrak() {
+        return prak;
+    }
+
+    public String getTeor() {
+        return teor;
+    }
+
+    public void setPrak(String prak) {
+        this.prak = prak;
+    }
+
+    public void setTeor(String teor) {
+        this.teor = teor;
+    }
 
     public Boolean getTeorijosEgzaminas() {
         return teorijosEgzaminas;
@@ -121,25 +145,48 @@ public class Klientas {
         this.vardas = vardas;
     }
 
-    @OneToMany(mappedBy="klie")
-    private List<Uzsakymas> uzsa;
+    /*@OneToMany(mappedBy="klie")
+    private Set<Uzsakymas> uzsa;
 
-    public List<Uzsakymas> getUzsa() {
+    public Set<Uzsakymas> getUzsa() {
         return uzsa;
     }
 
-    public void setUzsa(List<Uzsakymas> uzsa) {
+    public void setUzsa(Set<Uzsakymas> uzsa) {
         this.uzsa = uzsa;
     }
 
     @ManyToMany(mappedBy="klien")
-    private List<Grupe> grupes;
+    private Set<Grupe> grupes;
 
-    public List<Grupe> getGrupes() {
+    public Set<Grupe> getGrupes() {
         return grupes;
     }
 
-    public void setGrupes(List<Grupe> grupes) {
+    public void setGrupes(Set<Grupe> grupes) {
         this.grupes = grupes;
     }
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasTeo")
+    private Klientas filiTeo;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasPra")
+    private Klientas filiPra;
+
+    public Klientas getFiliPra() {
+        return filiPra;
+    }
+
+    public Klientas getFiliTeo() {
+        return filiTeo;
+    }
+
+    public void setFiliPra(Klientas filiPra) {
+        this.filiPra = filiPra;
+    }
+
+    public void setFiliTeo(Klientas filiTeo) {
+        this.filiTeo = filiTeo;
+    }*/
 }
