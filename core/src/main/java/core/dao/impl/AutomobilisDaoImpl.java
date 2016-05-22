@@ -18,11 +18,11 @@ public class AutomobilisDaoImpl implements AutomobilisDao {
     @Override
     public List<Automobilis> findAll() {
         List<Automobilis> auto = autoRepository.findAll();
+        System.out.println(auto.size());
         for(int i = 0; i < auto.size(); i++)
         {
             Automobilis a = auto.get(i);
-            a.getGr();
-            auto.add(i, a);
+            System.out.println(a.getId() + " " + a.getMarke() + " " + a.getModelis() + " " + a.getGr().getPavadinimas());
         }
         return auto;
     }

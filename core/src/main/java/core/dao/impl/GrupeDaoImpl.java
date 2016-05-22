@@ -16,7 +16,15 @@ public class GrupeDaoImpl implements GrupeDao {
 
     @Override
     public List<Grupe> findAll() {
-        return grupRepository.findAll();
+        List<Grupe> gr = grupRepository.findAll();
+        for(int i = 0; i < gr.size(); i++)
+        {
+            for(int j = 0; j < gr.get(i).getFili().size(); j++)
+            {
+                System.out.println(gr.get(i).getFili().get(j).getMiestas() + " " + gr.get(i).getFili().get(j).getAdresas() + " " + gr.get(i).getPavadinimas());
+            }
+        }
+        return gr;
     }
 
     @Override
