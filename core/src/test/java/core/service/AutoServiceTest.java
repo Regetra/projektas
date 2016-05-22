@@ -28,7 +28,7 @@ public class AutoServiceTest {
         AutomobilisDao autoDao = mock(AutomobilisDao.class);
         when(autoDao.findAll()).thenReturn(getMockNamesList());
 
-        setField(autoService, "personDao", autoDao);
+        setField(autoService, "autoDao", autoDao);
     }
 
     @Test

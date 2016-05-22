@@ -2,7 +2,7 @@ package core.model;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +18,7 @@ public class Klientas {
     private Integer id;
 
     @Column(name = "VairavimoEgzaminas")
-    private Boolean vairavimoEgzaminas;
+    private Integer vairavimoEgzaminas;
 
     @Column(name = "Vardas;")
     private String vardas;
@@ -30,10 +30,7 @@ public class Klientas {
     private String pavarde;
 
     @Column(name = "AsmensKodas")
-    private BigInteger asmensKodas;
-
-    @Column(name = "TeorijosEgzaminas")
-    private Boolean	teorijosEgzaminas;
+    private Long asmensKodas;
 
     @Column(name = "TeorinioData")
     private Date teorinioData;
@@ -44,11 +41,8 @@ public class Klientas {
     @Column(name = "TeorinioIslaikymoData")
     private Date teorinioIslaikymoData;
 
-    public Boolean getTeorijosEgzaminas() {
-        return teorijosEgzaminas;
-    }
 
-    public Boolean getVairavimoEgzaminas() {
+    public Integer getVairavimoEgzaminas() {
         return vairavimoEgzaminas;
     }
 
@@ -68,7 +62,7 @@ public class Klientas {
         return amzius;
     }
 
-    public BigInteger getAsmensKodas() {
+    public Long getAsmensKodas() {
         return asmensKodas;
     }
 
@@ -88,7 +82,7 @@ public class Klientas {
         this.amzius = amzius;
     }
 
-    public void setAsmensKodas(BigInteger asmensKodas) {
+    public void setAsmensKodas(Long asmensKodas) {
         this.asmensKodas = asmensKodas;
     }
 
@@ -104,10 +98,6 @@ public class Klientas {
         this.praktinioData = praktinioData;
     }
 
-    public void setTeorijosEgzaminas(Boolean teorijosEgzaminas) {
-        this.teorijosEgzaminas = teorijosEgzaminas;
-    }
-
     public void setTeorinioData(Date teorinioData) {
         this.teorinioData = teorinioData;
     }
@@ -116,7 +106,7 @@ public class Klientas {
         this.teorinioIslaikymoData = teorinioIslaikymoData;
     }
 
-    public void setVairavimoEgzaminas(Boolean vairavimoEgzaminas) {
+    public void setVairavimoEgzaminas(Integer vairavimoEgzaminas) {
         this.vairavimoEgzaminas = vairavimoEgzaminas;
     }
 
@@ -128,14 +118,18 @@ public class Klientas {
     private List<Uzsakymas> uzsa;
 
     public List<Uzsakymas> getUzsa() {
-        return uzsa;
+        return (uzsa != null) ? uzsa : null;
     }
 
     public void setUzsa(List<Uzsakymas> uzsa) {
         this.uzsa = uzsa;
     }
+    @ManyToMany
+    @JoinTable(
+            name="laiko",
+            joinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="id_klientas"),
+            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
 
-    @ManyToMany(mappedBy="klien")
     private List<Grupe> grupes;
 
     public List<Grupe> getGrupes() {
@@ -146,20 +140,20 @@ public class Klientas {
         this.grupes = grupes;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_filialasTeo", nullable=true)
     private Filialas filiTeo;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_filialasPra", nullable=true)
     private Filialas filiPra;
 
     public Filialas getFiliPra() {
-        return filiPra;
+        return (filiPra != null) ? filiPra : null;
     }
 
     public Filialas getFiliTeo() {
-        return filiTeo;
+        return (filiTeo != null) ? filiTeo : null;
     }
 
     public void setFiliPra(Filialas filiPra) {

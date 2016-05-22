@@ -21,12 +21,12 @@ public class KlientasDaoImpl implements KlientasDao {
         List<Klientas> klie = kliRepository.findAll();
         for(int i = 0; i < klie.size(); i++)
         {
-            System.out.println(klie.get(i).getFiliPra());
-            System.out.println(klie.get(i).getFiliTeo());
+            //System.out.println(klie.get(i).getFiliPra());
+            //System.out.println(klie.get(i).getFiliTeo());
             /*for(int j = 0; j < klie.get(i).getGrupes().size(); j++)
                 System.out.println(klie.get(i).getGrupes().get(j));*/
-            for(int j = 0; j < klie.get(i).getUzsa().size(); j++)
-                System.out.println(klie.get(i).getUzsa().get(j));
+            /*for(int j = 0; j < klie.get(i).getUzsa().size(); j++)
+                System.out.println(klie.get(i).getUzsa());*/
         }
         return klie;
     }

@@ -59,21 +59,17 @@ public class Grupe {
 
 
     @OneToMany(mappedBy="gr")
-    private List<Automobilis> auto;
+    private Set<Automobilis> auto;
 
-    public List<Automobilis> getAuto() {
+    public Set<Automobilis> getAuto() {
         return auto;
     }
 
-    public void setAuto(List<Automobilis> auto) {
+    public void setAuto(Set<Automobilis> auto) {
         this.auto = auto;
     }
 
-    @ManyToMany
-    @JoinTable(
-            name="laiko",
-            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
-            inverseJoinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="id_klientas"))
+    @ManyToMany(mappedBy="grupes")
     private List<Klientas> klien;
 
     @ManyToMany

@@ -69,11 +69,11 @@ public class Filialas {
     private List<Klientas> praktinis;
 
     public List<Klientas> getPraktinis() {
-        return praktinis;
+        return (praktinis != null) ? praktinis : null;
     }
 
     public List<Klientas> getTeorinis() {
-        return teorinis;
+        return (teorinis != null) ? teorinis : null;
     }
 
     public void setPraktinis(List<Klientas> praktinis) {

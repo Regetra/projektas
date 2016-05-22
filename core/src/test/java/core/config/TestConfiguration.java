@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "info.ernestas.simple.springexample.core")
+@ComponentScan(basePackages = "core")
 @EnableTransactionManagement
 public class TestConfiguration extends SimpleCoreConfiguration {
 
@@ -39,7 +39,7 @@ public class TestConfiguration extends SimpleCoreConfiguration {
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
         entityManagerFactoryBean.setJpaProperties(properties);
-        entityManagerFactoryBean.setPackagesToScan("info.ernestas.simple.springexample.core.model");
+        entityManagerFactoryBean.setPackagesToScan("core.model");
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 
         return entityManagerFactoryBean;

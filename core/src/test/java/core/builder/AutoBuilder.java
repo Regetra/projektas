@@ -12,6 +12,7 @@ public class AutoBuilder {
         car.setId(1);
         car.setMarke("Mazda");
         car.setModelis("Premacy");
+        car.setGr(null);
     }
 
     public static AutoBuilder init() {

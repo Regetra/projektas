@@ -20,7 +20,7 @@ public class InstruktoriusDaoImpl implements InstruktoriusDao {
         for(int i = 0; i < inst.size(); i++)
         {
             for(int j = 0; j < inst.get(i).getGrupe().size(); j++)
-                System.out.println(inst.get(i).getGrupe().get(j));
+                System.out.println(inst.get(i).getGrupe());
         }
         return inst;
     }
