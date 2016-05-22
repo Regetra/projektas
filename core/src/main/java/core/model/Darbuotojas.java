@@ -22,17 +22,6 @@ public class Darbuotojas {
     @Column(name = "Pavarde")
     private String pavarde;
 
-    @Column(name = "fk_Filialasid_Filialas")
-    private Integer filialas;
-
-    public Integer getFilialas() {
-        return filialas;
-    }
-
-    public void setFilialas(Integer filialas) {
-        this.filialas = filialas;
-    }
-
     public Integer getId() {
         return Id;
     }
@@ -57,7 +46,7 @@ public class Darbuotojas {
         this.vardas = vardas;
     }
 
-    /*@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_Filialasid_Filialas")
     private Filialas fili;
 
@@ -67,5 +56,5 @@ public class Darbuotojas {
 
     public void setFili(Filialas fili) {
         this.fili = fili;
-    }*/
+    }
 }

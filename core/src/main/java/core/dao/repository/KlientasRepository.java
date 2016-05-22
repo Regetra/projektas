@@ -9,10 +9,10 @@ public interface KlientasRepository extends JpaRepository<Klientas, Integer> {
 
     Klientas findByAsmensKodas(Integer AsmensKodas);
 
-    List<Klientas> findByTeorinioData(Date TeorinioData);
+    /*List<Klientas> findByTeorinioDataAndFilialas(Date TeorinioData, int fk_filialasTeo);
 
-    List<Klientas> findByPraktinioData(Date PraktinioData);
+    List<Klientas> findByPraktinioDataAndFilialas(Date PraktinioData, int fk_filialasPra);
 
-    List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData);
+    List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData);*/
 
 }

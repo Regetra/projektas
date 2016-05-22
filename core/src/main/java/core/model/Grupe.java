@@ -57,14 +57,15 @@ public class Grupe {
         this.komentaras = komentaras;
     }
 
-   /* @OneToMany(mappedBy="gr")
-    private Set<Automobilis> auto;
 
-    public Set<Automobilis> getAuto() {
+    @OneToMany(mappedBy="gr")
+    private List<Automobilis> auto;
+
+    public List<Automobilis> getAuto() {
         return auto;
     }
 
-    public void setAuto(Set<Automobilis> auto) {
+    public void setAuto(List<Automobilis> auto) {
         this.auto = auto;
     }
 
@@ -73,39 +74,39 @@ public class Grupe {
             name="laiko",
             joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
             inverseJoinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="id_klientas"))
-    private Set<Klientas> klien;
+    private List<Klientas> klien;
 
     @ManyToMany
     @JoinTable(
             name="egzaminuoja",
             joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
             inverseJoinColumns=@JoinColumn(name="fk_Instruktoriusid_Instruktorius", referencedColumnName="id_Instruktorius"))
-    private Set<Instruktorius> inst;
+    private List<Instruktorius> inst;
 
-    public Set<Instruktorius> getInst() {
+    public List<Instruktorius> getInst() {
         return inst;
     }
 
-    public void setInst(Set<Instruktorius> inst) {
+    public void setInst(List<Instruktorius> inst) {
         this.inst = inst;
     }
 
-    public Set<Klientas> getKlien() {
+    public List<Klientas> getKlien() {
         return klien;
     }
 
-    public void setKlien(Set<Klientas> klien) {
+    public void setKlien(List<Klientas> klien) {
         this.klien = klien;
     }
 
     @ManyToMany(mappedBy="grup")
-    private Set<Filialas> fili;
+    private List<Filialas> fili;
 
-    public Set<Filialas> getFili() {
+    public List<Filialas> getFili() {
         return fili;
     }
 
-    public void setFili(Set<Filialas> fili) {
+    public void setFili(List<Filialas> fili) {
         this.fili = fili;
-    }*/
+    }
 }

@@ -1,6 +1,7 @@
 package core.dao.repository;
 
 import core.model.Automobilis;
+import org.hibernate.mapping.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AutomobilisRepository extends JpaRepository<Automobilis, Integer> {

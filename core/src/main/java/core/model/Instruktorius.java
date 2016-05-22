@@ -2,7 +2,7 @@ package core.model;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
+
 
 /**
  * Created by SimphonX on 2016-04-23.
@@ -68,14 +68,14 @@ public class Instruktorius {
         this.stazas = stazas;
     }
 
-    /*@ManyToMany(mappedBy="inst")
-    private Set<Grupe> grupe;
+    @ManyToMany(mappedBy="inst")
+    private List<Grupe> grupe;
 
-    public Set<Grupe> getGrupe() {
+    public List<Grupe> getGrupe() {
         return grupe;
     }
 
-    public void setGrupe(Set<Grupe> grupe) {
+    public void setGrupe(List<Grupe> grupe) {
         this.grupe = grupe;
-    }*/
+    }
 }

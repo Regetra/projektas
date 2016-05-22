@@ -43,28 +43,6 @@ public class Klientas {
     @Column(name = "TeorinioIslaikymoData")
     private Date teorinioIslaikymoData;
 
-    @Column(name = "fk_filialasTeo")
-    private  String teor;
-
-    @Column(name = "fk_filialasPra")
-    private  String prak;
-
-    public String getPrak() {
-        return prak;
-    }
-
-    public String getTeor() {
-        return teor;
-    }
-
-    public void setPrak(String prak) {
-        this.prak = prak;
-    }
-
-    public void setTeor(String teor) {
-        this.teor = teor;
-    }
-
     public Boolean getTeorijosEgzaminas() {
         return teorijosEgzaminas;
     }
@@ -145,48 +123,49 @@ public class Klientas {
         this.vardas = vardas;
     }
 
-    /*@OneToMany(mappedBy="klie")
-    private Set<Uzsakymas> uzsa;
+    @OneToMany(mappedBy="klie")
+    private List<Uzsakymas> uzsa;
 
-    public Set<Uzsakymas> getUzsa() {
+    public List<Uzsakymas> getUzsa() {
         return uzsa;
     }
 
-    public void setUzsa(Set<Uzsakymas> uzsa) {
+    public void setUzsa(List<Uzsakymas> uzsa) {
         this.uzsa = uzsa;
     }
 
     @ManyToMany(mappedBy="klien")
-    private Set<Grupe> grupes;
+    private List<Grupe> grupes;
 
-    public Set<Grupe> getGrupes() {
+    public List<Grupe> getGrupes() {
         return grupes;
     }
 
-    public void setGrupes(Set<Grupe> grupes) {
+    public void setGrupes(List<Grupe> grupes) {
         this.grupes = grupes;
     }
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_filialasTeo")
-    private Klientas filiTeo;
+    private Filialas filiTeo;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_filialasPra")
-    private Klientas filiPra;
+    private Filialas filiPra;
 
-    public Klientas getFiliPra() {
+    public Filialas getFiliPra() {
         return filiPra;
     }
 
-    public Klientas getFiliTeo() {
+    public Filialas getFiliTeo() {
         return filiTeo;
     }
 
-    public void setFiliPra(Klientas filiPra) {
+    public void setFiliPra(Filialas filiPra) {
         this.filiPra = filiPra;
     }
 
-    public void setFiliTeo(Klientas filiTeo) {
+    public void setFiliTeo(Filialas filiTeo) {
         this.filiTeo = filiTeo;
-    }*/
+    }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 m. Geg 22 d. 06:09
+-- Generation Time: 2016 m. Geg 22 d. 06:49
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -187,6 +187,14 @@ CREATE TABLE `turi` (
   `fk_Grupeid_Grupe` int(11) NOT NULL,
   `fk_Filialasid_Filialas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Sukurta duomenų kopija lentelei `turi`
+--
+
+INSERT INTO `turi` (`fk_Grupeid_Grupe`, `fk_Filialasid_Filialas`) VALUES
+(1, 1),
+(2, 1);
 
 -- --------------------------------------------------------
 

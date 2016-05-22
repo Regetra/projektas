@@ -39,7 +39,7 @@ public class Filialas {
         this.miestas = miestas;
     }
 
-    /*@OneToMany(mappedBy="fili")
+    @OneToMany(mappedBy="fili")
     private Set<Darbuotojas> darb;
 
     public Set<Darbuotojas> getDarb() {
@@ -55,35 +55,37 @@ public class Filialas {
             name="turi",
             joinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"),
             inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
-    private Set<Grupe> grup;
 
-    public Set<Grupe> getGrup() {
+    private List<Grupe> grup;
+
+    public List<Grupe> getGrup() {
         return grup;
     }
 
-    public void setGrup(Set<Grupe> grup) {
+    public void setGrup(List<Grupe> grup) {
         this.grup = grup;
     }
 
     @OneToMany(mappedBy="filiTeo")
-    private Set<Klientas> teorinis;
+    private List<Klientas> teorinis;
 
     @OneToMany(mappedBy="filiPra")
-    private Set<Klientas> praktinis;
+    private List<Klientas> praktinis;
 
-    public Set<Klientas> getPraktinis() {
+    public List<Klientas> getPraktinis() {
         return praktinis;
     }
 
-    public Set<Klientas> getTeorinis() {
+    public List<Klientas> getTeorinis() {
         return teorinis;
     }
 
-    public void setPraktinis(Set<Klientas> praktinis) {
+    public void setPraktinis(List<Klientas> praktinis) {
         this.praktinis = praktinis;
     }
 
-    public void setTeorinis(Set<Klientas> teorinis) {
+    public void setTeorinis(List<Klientas> teorinis) {
         this.teorinis = teorinis;
-    }*/
+    }
+
 }
