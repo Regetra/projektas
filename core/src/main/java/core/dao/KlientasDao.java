@@ -1,5 +1,6 @@
 package core.dao;
 
+import core.model.Filialas;
 import core.model.Klientas;
 
 import java.util.Date;
@@ -16,7 +17,7 @@ public interface KlientasDao {
 
     /*List<Klientas> findByTeorinioDataAndFilialas(Date TeorinioData, int filialas);
 
-    List<Klientas> findByPraktinioDataAndFilialas(Date PraktinioData, int filialas);
+    List<Klientas> findByPraktinioDataAndFilialas(Date PraktinioData, Filialas filialas);
 
     List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData);*/
 

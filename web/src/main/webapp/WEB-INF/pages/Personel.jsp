@@ -29,7 +29,7 @@
                     <td>${persons.id}</td>
                     <td>${persons.vardas}</td>
                     <td>${persons.pavarde}</td>
-                    <td>${persons.filialas}</td><br />
+                    <td>${persons.fili.miestas}</td><br />
                 </tr>
             </c:forEach>
 

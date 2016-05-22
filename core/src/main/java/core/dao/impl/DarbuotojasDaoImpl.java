@@ -16,7 +16,13 @@ public class DarbuotojasDaoImpl implements DarbuotojasDao {
 
     @Override
     public List<Darbuotojas> findAll() {
-        return darRepository.findAll();
+        List<Darbuotojas> darb = darRepository.findAll();
+        for(int i = 0; i < darb.size(); i++)
+        {
+            Darbuotojas dar = darb.get(i);
+            System.out.println(dar.getId() + " " + dar.getFili());
+        }
+        return darb;
     }
 
     @Override

@@ -34,8 +34,8 @@ public class Klientas {
     @Column(name = "TeorijosEgzaminas")
     private Boolean	teorijosEgzaminas;
 
-    @Column(name = "TeorinioData")
-    private Date teorinioData;
+    /*@Column(name = "TeorinioData")
+    private Date teorinioData;*/
 
     @Column(name = "PraktinioData")
     private Date praktinioData;
@@ -55,9 +55,9 @@ public class Klientas {
         return praktinioData;
     }
 
-    public Date getTeorinioData() {
+    /*public Date getTeorinioData() {
         return teorinioData;
-    }
+    }*/
 
     public Date getTeorinioIslaikymoData() {
         return teorinioIslaikymoData;
@@ -107,9 +107,9 @@ public class Klientas {
         this.teorijosEgzaminas = teorijosEgzaminas;
     }
 
-    public void setTeorinioData(Date teorinioData) {
+    /*public void setTeorinioData(Date teorinioData) {
         this.teorinioData = teorinioData;
-    }
+    }*/
 
     public void setTeorinioIslaikymoData(Date teorinioIslaikymoData) {
         this.teorinioIslaikymoData = teorinioIslaikymoData;

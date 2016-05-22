@@ -2,6 +2,7 @@ package core.dao.impl;
 
 import core.dao.KlientasDao;
 import core.dao.repository.KlientasRepository;
+import core.model.Filialas;
 import core.model.Klientas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,17 +28,16 @@ public class KlientasDaoImpl implements KlientasDao {
 
     /*@Override
     public List<Klientas> findByTeorinioDataAndFilialas(Date TeorinioData, int fk_filialasTeo){
-        return kliRepository.findByTeorinioDataAndFilialas(TeorinioData, fk_filialasTeo);
+        return kliRepository.findByTeorinioDataAndfk_filialasTeo(TeorinioData, fk_filialasTeo);
     }
 
     @Override
-    public List<Klientas> findByPraktinioDataAndFilialas(Date PraktinioData, int fk_filialasPra) {
-        return kliRepository.findByPraktinioDataAndFilialas(PraktinioData, fk_filialasPra);
+    public List<Klientas> findByPraktinioDataAndFilialas(Date praktinioData, Filialas fk_filialasPra) {
+        return kliRepository.findByPraktinioDataAndfiliPra(praktinioData, fk_filialasPra);
     }
 
     @Override
     public List<Klientas> findByTeorinioIslaikymoData(Date TeorinioIslaikymoData) {
         return kliRepository.findByTeorinioIslaikymoData(TeorinioIslaikymoData);
     }*/
-
 }
