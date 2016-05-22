@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 m. Geg 22 d. 06:49
+-- Generation Time: 2016 m. Geg 22 d. 06:56
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -32,6 +32,17 @@ CREATE TABLE `darbuotojas` (
   `id_Darbuotojas` int(11) NOT NULL,
   `fk_Filialasid_Filialas` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Sukurta duomenų kopija lentelei `darbuotojas`
+--
+
+INSERT INTO `darbuotojas` (`Vardas`, `Pavarde`, `id_Darbuotojas`, `fk_Filialasid_Filialas`) VALUES
+('Algis', 'Bruzys', 1, 1),
+('Juze', 'Juzaite', 2, 1),
+('Juze', 'Juzeliene', 3, 1),
+('Marina', 'Bui', 4, 1),
+('Kestis', 'Degela', 5, 2);
 
 -- --------------------------------------------------------
 
@@ -292,7 +303,7 @@ ALTER TABLE `uzsakymas`
 -- AUTO_INCREMENT for table `darbuotojas`
 --
 ALTER TABLE `darbuotojas`
-  MODIFY `id_Darbuotojas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Darbuotojas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `garazas`
 --
