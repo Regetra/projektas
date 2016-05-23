@@ -29,6 +29,9 @@ public class Instruktorius {
     @Column(name = "Kategorijos")
     private String kategorijos;
 
+    @ManyToMany(mappedBy="inst")
+    private List<Grupe> grupe;
+
     public Integer getId() {
         return id;
     }
@@ -68,9 +71,6 @@ public class Instruktorius {
     public void setStazas(Integer stazas) {
         this.stazas = stazas;
     }
-
-    @ManyToMany(mappedBy="inst")
-    private List<Grupe> grupe;
 
     public List<Grupe> getGrupe() {
         return grupe;

@@ -25,6 +25,26 @@ public class Grupe {
     @Column(name = "Komentaras")
     private String komentaras;
 
+    @ManyToMany(mappedBy="grupes")
+    private List<Klientas> klien;
+
+    @ManyToMany
+    @JoinTable(
+            name="egzaminuoja",
+            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
+            inverseJoinColumns=@JoinColumn(name="fk_Instruktoriusid_Instruktorius", referencedColumnName="id_Instruktorius"))
+    private List<Instruktorius> inst;
+
+    @OneToMany(mappedBy="gr")
+    private Set<Automobilis> auto;
+
+    @ManyToMany
+    @JoinTable(
+            name="turi",
+            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
+            inverseJoinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"))
+    private List<Filialas> fili;
+
     public Integer getAmzius() {
         return amzius;
     }
@@ -57,10 +77,6 @@ public class Grupe {
         this.komentaras = komentaras;
     }
 
-
-    @OneToMany(mappedBy="gr")
-    private Set<Automobilis> auto;
-
     public Set<Automobilis> getAuto() {
         return auto;
     }
@@ -68,16 +84,6 @@ public class Grupe {
     public void setAuto(Set<Automobilis> auto) {
         this.auto = auto;
     }
-
-    @ManyToMany(mappedBy="grupes")
-    private List<Klientas> klien;
-
-    @ManyToMany
-    @JoinTable(
-            name="egzaminuoja",
-            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
-            inverseJoinColumns=@JoinColumn(name="fk_Instruktoriusid_Instruktorius", referencedColumnName="id_Instruktorius"))
-    private List<Instruktorius> inst;
 
     public List<Instruktorius> getInst() {
         return inst;
@@ -94,13 +100,6 @@ public class Grupe {
     public void setKlien(List<Klientas> klien) {
         this.klien = klien;
     }
-
-    @ManyToMany
-    @JoinTable(
-            name="turi",
-            joinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"),
-            inverseJoinColumns=@JoinColumn(name="fk_Filialasid_Filialas", referencedColumnName="id_Filialas"))
-    private List<Filialas> fili;
 
     public List<Filialas> getFili() {
         return fili;

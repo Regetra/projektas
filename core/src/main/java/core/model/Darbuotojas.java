@@ -22,6 +22,10 @@ public class Darbuotojas {
     @Column(name = "Pavarde")
     private String pavarde;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_Filialasid_Filialas")
+    private Filialas fili;
+
     public Integer getId() {
         return Id;
     }
@@ -45,10 +49,6 @@ public class Darbuotojas {
     public void setVardas(String vardas) {
         this.vardas = vardas;
     }
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_Filialasid_Filialas")
-    private Filialas fili;
 
     public Filialas getFili() {
         return fili;

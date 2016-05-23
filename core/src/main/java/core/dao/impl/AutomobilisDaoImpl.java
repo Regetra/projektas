@@ -21,7 +21,7 @@ public class AutomobilisDaoImpl implements AutomobilisDao {
         for(int i = 0; i < auto.size(); i++)
         {
             Automobilis a = auto.get(i);
-            System.out.println(a.getId() + " " + a.getMarke() + " " + a.getModelis() + " " + a.getGr().getPavadinimas());
+            System.out.println(a.getGr());
         }
         return auto;
     }

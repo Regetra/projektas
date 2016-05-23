@@ -24,12 +24,6 @@ public class FilialasDaoImpl implements FilialasDao {
 
                 for(int j = 0; j < fili.get(i).getGrup().size(); j++)
                     System.out.println(fili.get(i).getGrup());
-
-                /*for(int j = 0; j < fili.get(i).getPraktinis().size(); j++)
-                    System.out.println(fili.get(i).getPraktinis());
-
-                for(int j = 0; j < fili.get(i).getTeorinis().size(); j++)
-                    System.out.println(fili.get(i).getTeorinis());*/
         }
         return fili;
     }

@@ -21,6 +21,10 @@ public class Uzsakymas {
     @Column(name = "PristatymoVieta")
     private String pristatymoVieta;
 
+    @ManyToOne
+    @JoinColumn(name="fk_klientasid_klientas", nullable=true)
+    private Klientas klie;
+
     public Date getUsakymoData() {
         return usakymoData;
     }
@@ -44,10 +48,6 @@ public class Uzsakymas {
     public void setUsakymoData(Date usakymoData) {
         this.usakymoData = usakymoData;
     }
-
-    @ManyToOne
-    @JoinColumn(name="fk_klientasid_klientas", nullable=true)
-    private Klientas klie;
 
     public Klientas getKlie() {
         return klie;

@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class FilialasController {
 
     @Autowired
-    private FilialasService Service;
+    private FilialasService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getAllNames(Model model) {
-        model.addAttribute("filialas",Service.findAllFili() );
+        model.addAttribute("filialas",service.findAllFili() );
         return "filials";
     }
 

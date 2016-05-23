@@ -26,8 +26,6 @@ public class GrupeDaoImpl implements GrupeDao {
                 System.out.println(gr.get(i).getAuto());
             for(int j = 0; j < gr.get(i).getInst().size(); j++)
                 System.out.println(gr.get(i).getInst());
-            /*for(int j = 0; j < gr.get(i).getKlien().size(); j++)
-                System.out.println(gr.get(i).getKlien());*/
         }
         return gr;
 

@@ -19,21 +19,8 @@ public class FilialasServiceImpl implements FilialasService {
     @Autowired
     private FilialasDao filiDao;
 
-    /*@Autowired
-    private KlientasRepository klientas;*/
-
     @Override
     public List<Filialas> findAllFili() {
         return filiDao.findAll();
     }
-    /*@Override
-    public List<Klientas> findAllLaikanciusTeorija(Date laikas, int teorinis)
-    {
-        return klientas.findByTeorinioDataAndFilialas(laikas, teorinis);
-    }
-
-    @Override
-    public List<Klientas> findAllLaikanciusPraktika(Date laikas, int praktika) {
-        return klientas.findByPraktinioDataAndFilialas(laikas, praktika);
-    }*/
 }

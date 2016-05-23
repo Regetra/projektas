@@ -41,6 +41,23 @@ public class Klientas {
     @Column(name = "TeorinioIslaikymoData")
     private Date teorinioIslaikymoData;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasTeo", nullable=true)
+    private Filialas filiTeo;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_filialasPra", nullable=true)
+    private Filialas filiPra;
+
+    @OneToMany(mappedBy="klie")
+    private List<Uzsakymas> uzsa;
+
+    @ManyToMany
+    @JoinTable(
+            name="laiko",
+            joinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="id_klientas"),
+            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
+    private List<Grupe> grupes;
 
     public Integer getVairavimoEgzaminas() {
         return vairavimoEgzaminas;
@@ -114,9 +131,6 @@ public class Klientas {
         this.vardas = vardas;
     }
 
-    @OneToMany(mappedBy="klie")
-    private List<Uzsakymas> uzsa;
-
     public List<Uzsakymas> getUzsa() {
         return (uzsa != null) ? uzsa : null;
     }
@@ -124,13 +138,7 @@ public class Klientas {
     public void setUzsa(List<Uzsakymas> uzsa) {
         this.uzsa = uzsa;
     }
-    @ManyToMany
-    @JoinTable(
-            name="laiko",
-            joinColumns=@JoinColumn(name="fk_klientasid_klientas", referencedColumnName="id_klientas"),
-            inverseJoinColumns=@JoinColumn(name="fk_Grupeid_Grupe", referencedColumnName="id_Grupe"))
 
-    private List<Grupe> grupes;
 
     public List<Grupe> getGrupes() {
         return grupes;
@@ -139,14 +147,6 @@ public class Klientas {
     public void setGrupes(List<Grupe> grupes) {
         this.grupes = grupes;
     }
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_filialasTeo", nullable=true)
-    private Filialas filiTeo;
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_filialasPra", nullable=true)
-    private Filialas filiPra;
 
     public Filialas getFiliPra() {
         return (filiPra != null) ? filiPra : null;

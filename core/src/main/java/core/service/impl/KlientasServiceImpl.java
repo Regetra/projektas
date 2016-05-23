@@ -14,11 +14,11 @@ import java.util.List;
 public class KlientasServiceImpl implements KlientasService {
 
     @Autowired
-    private KlientasDao carDao;
+    private KlientasDao kliDao;
 
     @Override
     public List<Klientas> findAllKli() {
-        return carDao.findAll();
+        return kliDao.findAll();
     }
 
 }

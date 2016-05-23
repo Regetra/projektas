@@ -19,6 +19,18 @@ public class Filialas {
     @Column(name = "Adresas")
     private  String adresas;
 
+    @OneToMany(mappedBy="filiTeo")
+    private List<Klientas> teorinis;
+
+    @OneToMany(mappedBy="filiPra")
+    private List<Klientas> praktinis;
+
+    @ManyToMany(mappedBy="fili")
+    private List<Grupe> grup;
+
+    @OneToMany(mappedBy="fili")
+    private List<Darbuotojas> darb;
+
     public Integer getId(){return Id;}
 
     public void setId(Integer Id){this.Id = Id;}
@@ -39,9 +51,6 @@ public class Filialas {
         this.miestas = miestas;
     }
 
-    @OneToMany(mappedBy="fili")
-    private List<Darbuotojas> darb;
-
     public List<Darbuotojas> getDarb() {
         return darb;
     }
@@ -50,10 +59,6 @@ public class Filialas {
         this.darb = darb;
     }
 
-    @ManyToMany(mappedBy="fili")
-
-    private List<Grupe> grup;
-
     public List<Grupe> getGrup() {
         return grup;
     }
@@ -61,12 +66,6 @@ public class Filialas {
     public void setGrup(List<Grupe> grup) {
         this.grup = grup;
     }
-
-    @OneToMany(mappedBy="filiTeo")
-    private List<Klientas> teorinis;
-
-    @OneToMany(mappedBy="filiPra")
-    private List<Klientas> praktinis;
 
     public List<Klientas> getPraktinis() {
         return (praktinis != null) ? praktinis : null;

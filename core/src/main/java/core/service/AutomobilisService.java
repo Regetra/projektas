@@ -8,5 +8,4 @@ public interface AutomobilisService {
 
     List<Automobilis> findAllAuto();
 
-    int automobiliuSkaicius();
 }

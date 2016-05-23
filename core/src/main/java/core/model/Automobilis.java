@@ -17,6 +17,10 @@ public class Automobilis {
     @Column(name = "Marke")
     private  String marke;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="fk_Grupeid_Grupe")
+    private Grupe gr;
+
     public Integer getId(){return Id;}
 
     public void setId(Integer Id){this.Id = Id;}
@@ -36,10 +40,6 @@ public class Automobilis {
     public void setModelis(String modelis) {
         this.modelis = modelis;
     }
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_Grupeid_Grupe")
-    private Grupe gr;
 
     public Grupe getGr() {
         return gr;

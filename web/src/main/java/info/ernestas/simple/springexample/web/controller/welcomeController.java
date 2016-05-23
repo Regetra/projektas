@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/welcome")
-public class welcomeController {
+public class WelcomeController {
     @RequestMapping(value = "/")
     public String showIndex() {
         return "welcome";

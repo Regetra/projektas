@@ -24,11 +24,4 @@ public class AutomobilisServiceImpl implements AutomobilisService {
         return autoDao.findAll();
     }
 
-    @Override
-    public int automobiliuSkaicius() {
-        List<Automobilis> autoSk = autoDao.findAll();
-        return 0;
-    }
-
-
 }

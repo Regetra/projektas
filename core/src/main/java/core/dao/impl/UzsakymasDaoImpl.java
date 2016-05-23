@@ -18,10 +18,6 @@ public class UzsakymasDaoImpl implements UzsakymasDao {
     public List<Uzsakymas> findAll() {
 
         List<Uzsakymas> uzs = uzsRepository.findAll();
-        for(int i = 0; i < uzs.size(); i++)
-        {
-            //System.out.println(uzs.get(i).getKlie());
-        }
         return uzs;
     }
 

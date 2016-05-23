@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/regis")
-public class regController {
+public class RegController {
     @RequestMapping(value = "/")
     public String showIndex() {
         return "regis";
