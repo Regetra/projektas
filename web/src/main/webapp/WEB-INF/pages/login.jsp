@@ -15,7 +15,7 @@
             response.sendRedirect("success");
             System.out.println("success");
         } else {
-            response.sendRedirect("successs.jsp");
+            response.sendRedirect("failure");
             System.out.println("Invalid password <a href='index.jsp'>try again</a>");
         }
     %>

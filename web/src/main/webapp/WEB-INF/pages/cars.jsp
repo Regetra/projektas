@@ -3,7 +3,6 @@
 <%@ taglib prefix="customtags" tagdir="/WEB-INF/tags" %>
 
 
-
 <customtags:pageTemplate>
     <html>
     <head>
@@ -22,38 +21,28 @@
                 <th>Modelis</th>
                 <th>Kategorijos id</th>
             </tr>
-
             <c:forEach var="cars" items="${cars}">
                 <tr>
                     <td>${cars.marke}</td>
                     <td>${cars.modelis}</td>
-                    <td>${cars.gr.pavadinimas}</td> <br />
+                    <td>${cars.gr.pavadinimas}</td>
+                    <br />
                 </tr>
             </c:forEach>
-
-
         </table>
-
     </font>
     </body>
     </html>
-
-    <font color="white"> <p>Regetros automobiliai</p></font>
-
-
+    <font color="white">
+        <p>Regetros automobiliai</p>
+    </font>
     <img src="http://s31.postimg.org/v6xengxh7/img560678.jpg" width="300" height="240" alt="Regetra">
-
     <img src="  http://s31.postimg.org/67bktdwmz/regitra_62940830.jpg" width="300" height="240" alt="Regetra">
-
     <img src="http://s31.postimg.org/xvu36jb7f/Suzuki_GS1000.jpg" width="300" height="240" alt="Regetra">
-
     <img src="http://s31.postimg.org/mml4goeij/nuo_siu_metu_sausio_19_dienos_isigalios_pokyciai.jpg" width="300" height="240" alt="Regetra">
-
     <img src="http://s31.postimg.org/m2kc2l6d7/autobusas.jpg" width="300" height="240" alt="Regetra">
-
     <div align="right">
         <font color="white">
-
             <footer>
                 <p>Sistema kurta IF 4-14 studentų</p>
                 <p>2016m.</p>

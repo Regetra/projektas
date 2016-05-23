@@ -2,10 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="customtags" tagdir="/WEB-INF/tags" %>
-
+<!doctype html>
 <customtags:pageTemplate>
     <html>
-
     <head>
         <style>
             table, th, td {
@@ -23,40 +22,31 @@
                 <th>Pavardė</th>
                 <th>Filialas</th>
             </tr>
-
             <c:forEach var="persons" items="${persons}">
                 <tr>
                     <td>${persons.id}</td>
                     <td>${persons.vardas}</td>
                     <td>${persons.pavarde}</td>
-                    <td>${persons.fili.miestas}</td><br />
+                    <td>${persons.fili.miestas}</td>
+                    <br />
                 </tr>
             </c:forEach>
-
-
         </table>
-
     </font>
+
     </body>
-    </html>
-
-    <font color="white"> <p>Regetros personalas</p></font>
-
-
+    <font color="white">
+        <p>Regetros personalas</p>
+    </font>
     <img src="http://www.custompersonnel.com/assets/img/HR_dept.png" />
-
-
-
-
-
     <div align="right">
         <font color="white">
-
             <footer>
                 <p>Sistema kurta IF 4-14 studentų</p>
                 <p>2016m.</p>
             </footer>
         </font>
     </div>
+
 </customtags:pageTemplate>
 

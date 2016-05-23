@@ -21,41 +21,32 @@
                 <th>Miestas</th>
                 <th>Adresas</th>
             </tr>
-
             <c:forEach var="filialas" items="${filialas}">
                 <tr>
                     <td>${filialas.id}</td>
                     <td>${filialas.miestas}</td>
-                    <td>${filialas.adresas}</td> <br />
+                    <td>${filialas.adresas}</td>
+                    <br />
                 </tr>
             </c:forEach>
-
-
         </table>
-
     </font>
     </body>
-    </html>
 
-    <font color="white"> <p>Regetros filialai</p></font>
-
-
+    <font color="white">
+        <p>Regetros filialai</p>
+    </font>
     <img src="http://www.part.lt/img/c3b40f9f36fa09091f5f4fe0a98a4381283.jpg" width="400" height="340" />
-
     <img src="http://www.part.lt/img/e70bf1a99019adbb7b8c1847f47fe818957.JPG" width="400" height="340" />
-
     <img src="http://www.part.lt/img/49e544a0e3f1f659096323e088b9ea1d776.jpg" width="400" height="240" />
-
-
     <div align="right">
         <font color="white">
-
             <footer>
                 <p>Sistema kurta IF 4-14 studentų</p>
                 <p>2016m.</p>
             </footer>
         </font>
     </div>
-
+    </body>
+    </html>
 </customtags:pageTemplate>
-
